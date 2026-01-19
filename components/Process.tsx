@@ -69,9 +69,9 @@ const Process: React.FC = () => {
   );
 
   const HarvestAnimation = ({ progress }: { progress: number }) => (
-    <AnimationWrapper bg="../images/bg.jpg" label="KERALA SPICE FIELDS" labelIcon="location_on">
+    <AnimationWrapper bg="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/bg_hxyh3k.jpg" label="KERALA SPICE FIELDS" labelIcon="location_on">
       <div className="absolute z-20 will-change-transform" style={{ ...movingStyle(lerp(100, 2, progress), lerp(5, 120, progress)), width: '400px' }}>
-        <img src="../images/tra.png" alt="Tractor" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />
+        <img src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828456/tra_mmokoi.png" alt="Tractor" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />
       </div>
     </AnimationWrapper>
   );
@@ -138,9 +138,9 @@ const Process: React.FC = () => {
   };
 
   const ProcessingAnimation = ({ progress }: { progress: number }) => (
-    <AnimationWrapper bg="../images/boxbg.jpg" label="PROCESSING UNIT" labelIcon="factory" labelColor="amber">
+    <AnimationWrapper bg="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/boxbg_zio8eu.jpg" label="PROCESSING UNIT" labelIcon="factory" labelColor="amber">
       <div className="absolute z-20" style={{ ...movingStyle(lerp(100, 0, progress), lerp(70, 40, progress)), width: '500px' }}>
-        <img src="../images/box.png" alt="Package" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />
+        <img src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/box_khtoll.png" alt="Package" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />
       </div>
     </AnimationWrapper>
   );
@@ -149,9 +149,9 @@ const Process: React.FC = () => {
     const [startX, startY, endX, endY] = [50, 150, 30, -100];
     return (
       <div className="relative w-full h-full overflow-hidden rounded-2xl">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('../images/aerobg.jpg')` }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/aerobg_ajdch7.jpg')` }} />
         <div className="absolute z-20" style={{ ...movingStyle(lerp(startX, endX, progress), lerp(startY, endY, progress)), width: '300px' }}>
-          <img src="../images/aeroimg.png" alt="Airplane" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.3))' }} />
+          <img src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/aeroimg_je0lsg.png" alt="Airplane" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.3))' }} />
         </div>
         <div className="absolute top-4 left-4 bg-white/95 dark:bg-slate-800/95 rounded-xl p-3 shadow-lg z-30">
           <div className="flex items-center gap-2">
