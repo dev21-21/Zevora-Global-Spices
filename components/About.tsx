@@ -188,12 +188,12 @@ const About: React.FC = () => {
             {/* Mission box - rounded */}
             <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6 border-l-2 border-primary pl-5 bg-slate-50 dark:bg-white/5 py-4 pr-5 rounded-r-xl">
               <span className="text-primary font-sans font-semibold">Our Mission:</span><br/>
-              <span className="font-sans">To bridge the gap between traditional Idukki farmers and the global marketplace through transparent, quality-driven supply chains.</span>
+              <span className="font-sans">At ZEVORA, we are committed to ethical sourcing, organic integrity, and long-term partnerships. Our focus is not only on supplying spices, but on delivering reliability, transparency, and value across the entire supply chain.</span>
             </div>
             
             {/* Description - Sans font */}
-            <p className="font-sans text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
-              We specialize in sourcing the finest quality spices directly from the hills of Idukki and Wayanad. Our commitment to quality is validated by rigorous lab testing at every checkpoint.
+            <p className="font-sans text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8 ">
+              ZEVORA GLOBAL SPICES is a Kerala-based organic spice sourcing and export company established in 2015, delivering premium quality spices from India to global markets. We work directly with 150+ organic farmers across more than 100 acres of organic farmland, ensuring quality, traceability, fair pricing, and export-ready bulk, branded, and private-label packaging supported by an experienced team.
             </p>
             
             {/* Chart Section - rounded */}

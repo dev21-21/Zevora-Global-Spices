@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const SystemBar: React.FC = () => {
-  const currentTime = new Date().toLocaleTimeString('en-US', { 
-    hour12: false, 
-    hour: '2-digit', 
-    minute: '2-digit' 
-  });
+  const [currentTime, setCurrentTime] = useState('');
+
+  useEffect(() => {
+    // Function to update time
+    const updateTime = () => {
+      const time = new Date().toLocaleTimeString('en-US', { 
+        hour12: false, 
+        hour: '2-digit', 
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      setCurrentTime(time);
+    };
+
+    // Update immediately on mount
+    updateTime();
+
+    // Update every second
+    const interval = setInterval(updateTime, 1000);
+
+    // Cleanup interval on unmount
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="bg-slate-900 text-slate-400 font-mono text-[10px] py-1.5 px-4 sm:px-6 lg:px-8 border-b border-slate-800 overflow-hidden whitespace-nowrap flex justify-between items-center z-50 relative">

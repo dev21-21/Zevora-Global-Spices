@@ -18,14 +18,14 @@ const Stats: React.FC = () => {
                 <span className="material-symbols-outlined text-xl">history</span>
               </div>
               <span className="font-mono text-[9px] text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full tracking-wide">
-                EST 2004
+                EST 2015
               </span>
             </div>
             
             <div className="flex items-end gap-3 mb-3">
               {/* Number - Display font */}
               <p className="font-display text-5xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
-                20+
+                10+
               </p>
               <svg className="w-24 h-10 stroke-slate-400 group-hover:stroke-primary transition-colors" fill="none" strokeWidth="2" viewBox="0 0 100 40">
                 <polyline points="0,35 20,25 40,30 60,10 80,20 100,5"></polyline>

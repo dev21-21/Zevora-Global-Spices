@@ -75,11 +75,14 @@ const Hero: React.FC = () => {
               >
                 View Products
               </a>
-              <button 
-                className="h-14 px-10 flex items-center justify-center border-2 border-white/70 text-white font-sans font-medium text-sm hover:bg-white hover:text-slate-900 transition-all duration-300 rounded-xl"
+              <a 
+                href="/brochure/ZEVORA GLOBAL SPICES.pdf" 
+          download='ZEVORA GLOBAL SPICES.pdf'
+                className="h-14 px-10 flex items-center justify-center gap-2 border-2 border-white/70 text-white font-sans font-medium text-sm hover:bg-white hover:text-slate-900 transition-all duration-300 rounded-xl"
               >
+                <span className="material-symbols-outlined text-lg">download</span>
                 Download Brochure
-              </button>
+              </a>
             </div>
           </div>
 

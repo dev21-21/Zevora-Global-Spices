@@ -22,9 +22,9 @@ const Navbar: React.FC = () => {
             </div>
             <div className="flex flex-col">
               <span className="font-display text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-none">
-                Kerala<span className="text-primary">Spices</span>
+                Zevora<span className="text-primary"> Global Spices</span>
               </span>
-              <span className="text-[9px] font-mono text-slate-500 tracking-[0.1em]">Est. 2004 · Exp. Lic. #8892</span>
+              <span className="text-[9px] font-mono text-slate-500 tracking-[0.1em]">Est. 2015 · Exp. Lic. #8892</span>
             </div>
           </div>
 
@@ -50,7 +50,8 @@ const Navbar: React.FC = () => {
           <div className="flex items-center gap-4">
             {/* Download button */}
             <a 
-              href="#contact"
+             href="/brochure/ZEVORA GLOBAL SPICES.pdf" 
+          download='ZEVORA GLOBAL SPICES.pdf'
               className="hidden sm:flex h-10 items-center justify-center bg-primary px-6 text-sm font-sans font-semibold text-slate-900 shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all rounded-xl"
             >
               Download Brochure

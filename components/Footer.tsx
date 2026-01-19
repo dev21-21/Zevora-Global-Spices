@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
         {/* Copyright - Professional mono font */}
         <p className="font-mono text-sm text-slate-400 tracking-wide">
-          © 2025 Kerala Spices Export Co. · All rights reserved.
+          © 2026 Kerala Spices Export Co. · All rights reserved.
         </p>
         
         {/* Footer links - Sans font */}
@@ -24,8 +24,8 @@ const Footer: React.FC = () => {
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         {/* Download Brochure Button */}
         <a 
-          href="/path-to-brochure.pdf" 
-          download
+          href="/brochure/ZEVORA GLOBAL SPICES.pdf" 
+          download='ZEVORA GLOBAL SPICES.pdf'
           className="rounded-2xl group relative flex h-14 w-14 items-center justify-center bg-primary text-slate-900 shadow-lg hover:shadow-xl hover:scale-105 transition-all border-2 border-slate-900/10"
           title="Download Brochure"
         >
