@@ -2,28 +2,41 @@ import React from 'react';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-background-dark border-b-4 border-double border-slate-200">
+    <section id="about" className="py-12 md:py-20 bg-white dark:bg-background-dark border-b-4 border-double border-slate-200">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-16 items-start">
-          <div className="lg:w-1/2 relative">
-            {/* Main image container - rounded */}
-            <div className="border-2 border-slate-900 dark:border-white p-2 bg-slate-100 dark:bg-slate-900 rotate-1 rounded-xl overflow-hidden shadow-lg">
-              <div className="grid grid-cols-2 gap-2">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+          <div className="w-full lg:w-1/2 relative">
+            {/* Main image container - responsive */}
+            <div className="border-2 border-slate-900 dark:border-white p-2 bg-slate-100 dark:bg-slate-900 rotate-0 sm:rotate-1 rounded-xl overflow-hidden shadow-lg">
+              {/* Mobile: Single column, Tablet+: Two columns */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {/* Mobile: All images in single column */}
                 <div className="space-y-2">
-                  {/* Images - rounded */}
-                  <div className="h-48 w-full bg-cover bg-center filter contrast-125 border border-slate-400 rounded-lg hover:grayscale-0 transition-all duration-500" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAc69EfsBfzF8nZAdeOU9OJfOJ843naIhNw2x95Zkn3edD9gBoNiozotZzOGllZdetf9_vsVBFSS_rHref7O47zlxG0VBo3sykVMr5HY0QQesOYIFQMfwpLteLMDW360WyobQiquNvwOy5rr82eoWU62VNLg6CO0gKNmiot4mVJcqUn0J9HvLiM1ZNbXs0z309dcSIg80rLRoHpkdckK02zkNfs0VXK8BWbm554bPKhQk-jn6ToMLJ0x2VrsMBHfI-YQecqOzIW3mc-')" }}></div>
-                  <div className="h-64 w-full bg-cover bg-center filter contrast-125 border border-slate-400 rounded-lg hover:grayscale-0 transition-all duration-500" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDi6g36sbjc6coOwlab1YGK0WlDvFNOhFFvTw4vRL2xnQ0n5SihExICygQeeOfBJqiZ1IEmjJwypNmmCjq6w4nfIdxvv4WUmPgZhGlq-Z1pxDWLzaqQBskKAFrCX8rZ4lAV-BDLKszPHevmH3kNZMXj_gPh26OBMX0EYvJNYnYhvN6dvbCmP2UVqptG5pqqo_HkZaOeCrpGwYMTp1GNtcdYSd0n6saBDA8oDXNKoThGbsWglsXuRWhhzOB_EyB3CzTrD7DENzlPLMoB')" }}></div>
+                  <div 
+                    className="h-40 sm:h-48 w-full bg-cover bg-center filter contrast-125 border border-slate-400 rounded-lg hover:grayscale-0 transition-all duration-500" 
+                    style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAc69EfsBfzF8nZAdeOU9OJfOJ843naIhNw2x95Zkn3edD9gBoNiozotZzOGllZdetf9_vsVBFSS_rHref7O47zlxG0VBo3sykVMr5HY0QQesOYIFQMfwpLteLMDW360WyobQiquNvwOy5rr82eoWU62VNLg6CO0gKNmiot4mVJcqUn0J9HvLiM1ZNbXs0z309dcSIg80rLRoHpkdckK02zkNfs0VXK8BWbm554bPKhQk-jn6ToMLJ0x2VrsMBHfI-YQecqOzIW3mc-')" }}
+                  />
+                  <div 
+                    className="h-48 sm:h-64 w-full bg-cover bg-center filter contrast-125 border border-slate-400 rounded-lg hover:grayscale-0 transition-all duration-500" 
+                    style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDi6g36sbjc6coOwlab1YGK0WlDvFNOhFFvTw4vRL2xnQ0n5SihExICygQeeOfBJqiZ1IEmjJwypNmmCjq6w4nfIdxvv4WUmPgZhGlq-Z1pxDWLzaqQBskKAFrCX8rZ4lAV-BDLKszPHevmH3kNZMXj_gPh26OBMX0EYvJNYnYhvN6dvbCmP2UVqptG5pqqo_HkZaOeCrpGwYMTp1GNtcdYSd0n6saBDA8oDXNKoThGbsWglsXuRWhhzOB_EyB3CzTrD7DENzlPLMoB')" }}
+                  />
                 </div>
-                <div className="space-y-2 pt-8">
-                  <div className="h-64 w-full bg-cover bg-center filter contrast-125 border border-slate-400 rounded-lg hover:grayscale-0 transition-all duration-500" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuARW4n64fAHzgyaZfSiWjFHSkXQgpLEsgHTorMtro9PykHZck0G2EsfftYJKAAh5IU2PvVm0bYo0azdQDUNHVKKQhtwS1yVFNfafPk-lYvIZVYTXJ0npRjaf3Ev037Bi_xcK5MHWMJFjD8PPo66ng1DHQLUF_AlUuS6lem2SwDBjVvcDQNMdArFgt5IMotNfx959JxP4rne07TTTJPw6FnsYZZ-WoDUPV6NiAOzoFmAGLT_Vn1dJ0EeCAHUfgImebRJ82ow1bhCFwqd')" }}></div>
-                  <div className="h-48 w-full bg-cover bg-center filter contrast-125 border border-slate-400 rounded-lg hover:grayscale-0 transition-all duration-500" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAR5CxcKtZL6i0fbhS2yLDzOzjhNA6tK24t6MCwX0m-t6GYH-Dh7sAdPNiC2n2X8CThKi_NCoj-D3b60xZEERRMWB7jgE4BY0--qKI8VyH8AyFavmK9AFP93ws751w7buTxSIukARaFR1eMsc8w94fXc92kUvKlbRhlopJjvOuefRIO2Nj5pkmFVxm5SU8H3XYy_yydxZF6HwyJcU3MLhFStd17PGC0d3z3aart-oDHTPlMfZVp6VvczPdiq3rCC7uaP3HPl20YSKOM')" }}></div>
+                <div className="space-y-2 sm:pt-8">
+                  <div 
+                    className="h-48 sm:h-64 w-full bg-cover bg-center filter contrast-125 border border-slate-400 rounded-lg hover:grayscale-0 transition-all duration-500" 
+                    style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuARW4n64fAHzgyaZfSiWjFHSkXQgpLEsgHTorMtro9PykHZck0G2EsfftYJKAAh5IU2PvVm0bYo0azdQDUNHVKKQhtwS1yVFNfafPk-lYvIZVYTXJ0npRjaf3Ev037Bi_xcK5MHWMJFjD8PPo66ng1DHQLUF_AlUuS6lem2SwDBjVvcDQNMdArFgt5IMotNfx959JxP4rne07TTTJPw6FnsYZZ-WoDUPV6NiAOzoFmAGLT_Vn1dJ0EeCAHUfgImebRJ82ow1bhCFwqd')" }}
+                  />
+                  <div 
+                    className="h-40 sm:h-48 w-full bg-cover bg-center filter contrast-125 border border-slate-400 rounded-lg hover:grayscale-0 transition-all duration-500" 
+                    style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAR5CxcKtZL6i0fbhS2yLDzOzjhNA6tK24t6MCwX0m-t6GYH-Dh7sAdPNiC2n2X8CThKi_NCoj-D3b60xZEERRMWB7jgE4BY0--qKI8VyH8AyFavmK9AFP93ws751w7buTxSIukARaFR1eMsc8w94fXc92kUvKlbRhlopJjvOuefRIO2Nj5pkmFVxm5SU8H3XYy_yydxZF6HwyJcU3MLhFStd17PGC0d3z3aart-oDHTPlMfZVp6VvczPdiq3rCC7uaP3HPl20YSKOM')" }}
+                  />
                 </div>
               </div>
             </div>
             
-            {/* AUTHENTIC STAMP DESIGN */}
-            <div className="absolute bottom-6 -right-6 transform -rotate-12 pointer-events-none">
-              <div className="relative w-36 h-36">
+            {/* AUTHENTIC STAMP DESIGN - Responsive positioning */}
+            <div className="absolute -bottom-4 -right-2 sm:bottom-6 sm:-right-6 transform -rotate-12 pointer-events-none scale-75 sm:scale-100">
+              <div className="relative w-28 h-28 sm:w-36 sm:h-36">
                 {/* Outer ring with distressed effect */}
                 <svg 
                   viewBox="0 0 200 200" 
@@ -172,40 +185,40 @@ const About: React.FC = () => {
             </div>
           </div>
           
-          <div className="lg:w-1/2">
+          <div className="w-full lg:w-1/2">
             {/* Section label */}
             <div className="flex items-center gap-3 mb-4">
               <span className="h-px w-10 bg-primary"></span>
               <span className="text-primary font-mono text-[11px] font-medium tracking-[0.15em]">ABOUT US</span>
             </div>
             
-            {/* Main heading - Display font */}
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mt-2 mb-6 leading-[1.1] tracking-[-0.02em]">
+            {/* Main heading - Display font - Responsive */}
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mt-2 mb-6 leading-[1.1] tracking-[-0.02em]">
               Rooted in Tradition.<br/>
               <span className="text-primary">Connected Globally.</span>
             </h2>
             
             {/* Mission box - rounded */}
-            <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6 border-l-2 border-primary pl-5 bg-slate-50 dark:bg-white/5 py-4 pr-5 rounded-r-xl">
+            <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6 border-l-2 border-primary pl-4 sm:pl-5 bg-slate-50 dark:bg-white/5 py-4 pr-4 sm:pr-5 rounded-r-xl">
               <span className="text-primary font-sans font-semibold">Our Mission:</span><br/>
               <span className="font-sans">At ZEVORA, we are committed to ethical sourcing, organic integrity, and long-term partnerships. Our focus is not only on supplying spices, but on delivering reliability, transparency, and value across the entire supply chain.</span>
             </div>
             
-            {/* Description - Sans font */}
-            <p className="font-sans text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8 ">
+            {/* Description - Sans font - Responsive */}
+            <p className="font-sans text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed mb-8">
               ZEVORA GLOBAL SPICES is a Kerala-based organic spice sourcing and export company established in 2015, delivering premium quality spices from India to global markets. We work directly with 150+ organic farmers across more than 100 acres of organic farmland, ensuring quality, traceability, fair pricing, and export-ready bulk, branded, and private-label packaging supported by an experienced team.
             </p>
             
-            {/* Chart Section - rounded */}
-            <div className="mb-8 p-6 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-slate-700 rounded-2xl">
-              <h4 className="font-mono text-[10px] font-medium tracking-[0.15em] mb-6 text-slate-500">
+            {/* Chart Section - rounded - Responsive */}
+            <div className="mb-8 p-4 sm:p-6 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-slate-700 rounded-2xl">
+              <h4 className="font-mono text-[9px] sm:text-[10px] font-medium tracking-[0.15em] mb-4 sm:mb-6 text-slate-500">
                 ANNUAL EXPORT VOLUME (METRIC TONS)
               </h4>
               
               {/* Chart Container */}
               <div className="relative">
                 {/* Bars - rounded tops */}
-                <div className="flex items-end gap-3 h-32 w-full border-b border-slate-300 dark:border-slate-600">
+                <div className="flex items-end gap-2 sm:gap-3 h-24 sm:h-32 w-full border-b border-slate-300 dark:border-slate-600">
                   {[
                     { height: 30, year: '2020' },
                     { height: 45, year: '2021' },
@@ -216,7 +229,7 @@ const About: React.FC = () => {
                   ].map((item, i) => (
                     <div 
                       key={i} 
-                      className={`flex-1 relative group cursor-pointer transition-all duration-300 rounded-t-lg ${
+                      className={`flex-1 relative group cursor-pointer transition-all duration-300 rounded-t-md sm:rounded-t-lg ${
                         item.current 
                           ? 'bg-primary hover:bg-primary/80' 
                           : 'bg-slate-300 dark:bg-slate-700 hover:bg-slate-400 dark:hover:bg-slate-600'
@@ -224,7 +237,7 @@ const About: React.FC = () => {
                       style={{ height: `${item.height}%` }}
                     >
                       {/* Tooltip on hover - rounded */}
-                      <span className={`absolute -top-9 left-1/2 -translate-x-1/2 text-[10px] font-mono font-medium px-2.5 py-1 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg ${
+                      <span className={`absolute -top-8 sm:-top-9 left-1/2 -translate-x-1/2 text-[8px] sm:text-[10px] font-mono font-medium px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-md sm:rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg ${
                         item.current 
                           ? 'bg-primary text-slate-900' 
                           : 'bg-slate-800 text-white'
@@ -235,39 +248,41 @@ const About: React.FC = () => {
                   ))}
                 </div>
                 
-                {/* Year Labels - Separate Row */}
-                <div className="flex gap-3 mt-3">
+                {/* Year Labels - Separate Row - Responsive */}
+                <div className="flex gap-2 sm:gap-3 mt-2 sm:mt-3">
                   {['2020', '2021', '2022', '2023', '2024', '2025'].map((year, i) => (
                     <div 
                       key={i} 
-                      className={`flex-1 text-center text-[10px] font-mono tracking-wide ${
+                      className={`flex-1 text-center text-[8px] sm:text-[10px] font-mono tracking-wide ${
                         year === '2025' 
                           ? 'text-primary font-semibold' 
                           : 'text-slate-400'
                       }`}
                     >
-                      {year}
+                      {/* Show short year on mobile */}
+                      <span className="sm:hidden">{year.slice(2)}</span>
+                      <span className="hidden sm:inline">{year}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Checklist - professional styling */}
-            <ul className="space-y-4">
+            {/* Checklist - professional styling - Responsive */}
+            <ul className="space-y-3 sm:space-y-4">
               {[
                 'Direct Farm Sourcing from Kerala',
                 'ISO 22000 Certified Processing Facility',
                 'Eco-Friendly & Sustainable Practices',
                 'FSSAI & Organic Certified Products'
               ].map((item, index) => (
-                <li key={index} className="flex items-center gap-4 group">
-                  <div className="w-6 h-6 border-2 border-primary flex items-center justify-center group-hover:bg-primary transition-colors duration-300 rounded-md">
-                    <svg className="w-3.5 h-3.5 text-primary group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                <li key={index} className="flex items-center gap-3 sm:gap-4 group">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-primary flex items-center justify-center group-hover:bg-primary transition-colors duration-300 rounded-md flex-shrink-0">
+                    <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-primary group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <span className="font-sans text-slate-700 dark:text-slate-300 text-sm font-medium">{item}</span>
+                  <span className="font-sans text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-medium">{item}</span>
                 </li>
               ))}
             </ul>

@@ -146,7 +146,7 @@ const Process: React.FC = () => {
   );
 
   const LogisticsAnimation = ({ progress }: { progress: number }) => {
-    const [startX, startY, endX, endY] = [50, 150, 30, -100];
+    const [startX, startY, endX, endY] = [200, 150, -100, -100];
     return (
       <div className="relative w-full h-full overflow-hidden rounded-2xl">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/aerobg_ajdch7.jpg')` }} />
