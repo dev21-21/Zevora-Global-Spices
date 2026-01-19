@@ -85,7 +85,7 @@ const products: ExtendedProduct[] = [
     name: 'Cashew Nuts',
     ref: 'SKU-CW145',
     image: 'https://static.wixstatic.com/media/24d4b1_b0fa25438c6b4d35990c7f8db1b443d5~mv2.jpg/v1/fit/w_614,h_614,q_90,enc_avif,quality_auto/24d4b1_b0fa25438c6b4d35990c7f8db1b443d5~mv2.jpg',
-    specs: { GRADE: 'W320', COLOR: 'WHITE', ORIGIN: 'KOLLAM', SIZE: 'LARGE' },
+    specs: { GRADE: 'W320', COLOR: 'WHITE', ORIGIN: 'KERALA', SIZE: 'LARGE' },
     description: 'Premium grade cashews, crisp and naturally sweet.',
     rating: 4.8,
     reviews: 2156
@@ -95,7 +95,7 @@ const products: ExtendedProduct[] = [
     name: 'Coffee Products',
     ref: 'SKU-CF234',
     image: ' https://m.media-amazon.com/images/I/31HNx7ZvnFL.jpg',
-    specs: { TYPE: 'ARABICA', ROAST: 'MEDIUM', ORIGIN: 'WAYANAD', GRADE: 'AA' },
+    specs: { TYPE: 'ARABICA', ROAST: 'MEDIUM', ORIGIN: 'KERALA', GRADE: 'AA' },
     description: 'Premium Arabica coffee beans from Western Ghats.',
     rating: 4.7,
     reviews: 1789
@@ -105,7 +105,7 @@ const products: ExtendedProduct[] = [
     name: 'Tea Products',
     ref: 'SKU-TE187',
     image: 'https://t4.ftcdn.net/jpg/16/15/40/99/240_F_1615409949_XXXAoFOCayjZcOOYQuWRoI0Jk6xH2A6n.jpg',
-    specs: { TYPE: 'CTC', GRADE: 'PREMIUM', ORIGIN: 'MUNNAR', COLOR: 'GOLDEN' },
+    specs: { TYPE: 'CTC', GRADE: 'PREMIUM', ORIGIN: 'KERALA', COLOR: 'GOLDEN' },
     description: 'Fresh tea leaves from high-altitude estates.',
     rating: 4.6,
     reviews: 1432
