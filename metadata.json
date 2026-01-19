@@ -1,0 +1,8 @@
+{
+  "name": "Kerala Spices Exports",
+  "description": "Premium spice export portal featuring AI-powered quality analysis and global supply chain tracking.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
