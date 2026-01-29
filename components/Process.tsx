@@ -17,12 +17,10 @@ const Process: React.FC = () => {
       const windowHeight = window.innerHeight;
       const scrollableDistance = sectionHeight - windowHeight;
 
-      // Calculate how far through the section we've scrolled
       const scrolled = -rect.top;
       const progress = Math.max(0, Math.min(1, scrolled / scrollableDistance));
       setHorizontalProgress(progress);
 
-      // Calculate individual step progress
       const stepProgress = [0, 1, 2, 3].map((i) => {
         const stepStart = i * 0.25;
         const stepEnd = (i + 1) * 0.25;
@@ -35,7 +33,7 @@ const Process: React.FC = () => {
       setActiveStep(Math.min(3, Math.floor(progress * 4)));
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -47,12 +45,18 @@ const Process: React.FC = () => {
     { id: '04', title: 'Logistics', icon: 'flight_takeoff', subtitle: 'Air & Sea Freight', detail: 'Worldwide Delivery', color: 'sky' },
   ], []);
 
+  // Smooth lerp function
   const lerp = (start: number, end: number, progress: number) => start + progress * (end - start);
 
+  // Easing function for smoother animation
+  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+  const easeInOutQuad = (t: number) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+
   const movingStyle = (x: number, y: number) => ({
-    left: `${x}%`, top: `${y}%`,
+    left: `${x}%`, 
+    top: `${y}%`,
     transform: 'translate(-50%, -50%)',
-    transition: 'left 0.1s ease-out, top 0.1s ease-out',
+    transition: 'left 0.4s ease-out, top 0.4s ease-out', // ⬅️ Slower transition
   });
 
   const AnimationWrapper = ({ bg, children, label, labelIcon, labelColor = 'green' }: any) => (
@@ -68,13 +72,26 @@ const Process: React.FC = () => {
     </div>
   );
 
-  const HarvestAnimation = ({ progress }: { progress: number }) => (
-    <AnimationWrapper bg="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/bg_hxyh3k.jpg" label="KERALA SPICE FIELDS" labelIcon="location_on">
-      <div className="absolute z-20 will-change-transform" style={{ ...movingStyle(lerp(100, 2, progress), lerp(5, 120, progress)), width: '400px' }}>
-        <img src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828456/tra_mmokoi.png" alt="Tractor" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />
-      </div>
-    </AnimationWrapper>
-  );
+  // ⬅️ REDUCED MOVEMENT RANGE - Tractor
+  const HarvestAnimation = ({ progress }: { progress: number }) => {
+    const easedProgress = easeOutCubic(progress);
+    return (
+      <AnimationWrapper bg="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/bg_hxyh3k.jpg" label="KERALA SPICE FIELDS" labelIcon="location_on">
+        <div 
+          className="absolute z-20 will-change-transform" 
+          style={{ 
+            ...movingStyle(
+              lerp(85, 15, easedProgress),  // Was: 100 to 2 (98% range) → Now: 85 to 15 (70% range)
+              lerp(35, 65, easedProgress)   // Was: 5 to 120 (115% range) → Now: 35 to 65 (30% range)
+            ), 
+            width: '400px' 
+          }}
+        >
+          <img src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828456/tra_mmokoi.png" alt="Tractor" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />
+        </div>
+      </AnimationWrapper>
+    );
+  };
 
   const QualityLabAnimation = ({ progress }: { progress: number }) => {
     const checks = [
@@ -106,12 +123,12 @@ const Process: React.FC = () => {
                 const isComplete = progress > check.threshold;
                 const isActive = progress >= check.threshold - 0.05 && progress <= check.threshold + 0.1;
                 return (
-                  <div key={i} className={`flex items-center gap-2 p-2 rounded-lg transition-all duration-300 ${isComplete ? 'bg-green-50 dark:bg-green-900/20 border border-green-300 dark:border-green-700' : 'bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600'}`}>
-                    <div className={`w-6 h-6 rounded-full flex items-center justify-center ${isComplete ? 'bg-green-500' : 'bg-slate-200 dark:bg-slate-600'}`}>
+                  <div key={i} className={`flex items-center gap-2 p-2 rounded-lg transition-all duration-500 ${isComplete ? 'bg-green-50 dark:bg-green-900/20 border border-green-300 dark:border-green-700' : 'bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600'}`}>
+                    <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-500 ${isComplete ? 'bg-green-500' : 'bg-slate-200 dark:bg-slate-600'}`}>
                       {isComplete ? <span className={`material-symbols-outlined text-white text-xs ${isActive ? 'animate-bounce' : ''}`}>check</span> : <div className="w-2 h-2 border border-dashed border-slate-400 rounded-full" />}
                     </div>
-                    <span className={`text-xs font-medium ${isComplete ? 'text-green-700 dark:text-green-400' : 'text-slate-500'}`}>{check.label}</span>
-                    <div className={`ml-auto px-1.5 py-0.5 rounded text-[9px] font-medium ${isComplete ? 'bg-green-500 text-white' : 'bg-slate-200 dark:bg-slate-600 text-slate-400'}`}>{isComplete ? 'Pass' : 'Wait'}</div>
+                    <span className={`text-xs font-medium transition-colors duration-500 ${isComplete ? 'text-green-700 dark:text-green-400' : 'text-slate-500'}`}>{check.label}</span>
+                    <div className={`ml-auto px-1.5 py-0.5 rounded text-[9px] font-medium transition-all duration-500 ${isComplete ? 'bg-green-500 text-white' : 'bg-slate-200 dark:bg-slate-600 text-slate-400'}`}>{isComplete ? 'Pass' : 'Wait'}</div>
                   </div>
                 );
               })}
@@ -122,7 +139,7 @@ const Process: React.FC = () => {
                 <span className="text-xs font-bold text-cyan-600">{Math.round(progress * 100)}%</span>
               </div>
               <div className="h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-200" style={{ width: `${progress * 100}%` }} />
+                <div className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-500" style={{ width: `${progress * 100}%` }} />
               </div>
               {progress > 0.9 && (
                 <div className="mt-2 flex items-center justify-center gap-1 p-1.5 bg-green-500 rounded-lg animate-pulse">
@@ -137,20 +154,43 @@ const Process: React.FC = () => {
     );
   };
 
-  const ProcessingAnimation = ({ progress }: { progress: number }) => (
-    <AnimationWrapper bg="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/boxbg_zio8eu.jpg" label="PROCESSING UNIT" labelIcon="factory" labelColor="amber">
-      <div className="absolute z-20" style={{ ...movingStyle(lerp(100, 0, progress), lerp(70, 40, progress)), width: '500px' }}>
-        <img src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/box_khtoll.png" alt="Package" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />
-      </div>
-    </AnimationWrapper>
-  );
+  // ⬅️ REDUCED MOVEMENT RANGE - Package/Box
+  const ProcessingAnimation = ({ progress }: { progress: number }) => {
+    const easedProgress = easeInOutQuad(progress);
+    return (
+      <AnimationWrapper bg="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/boxbg_zio8eu.jpg" label="PROCESSING UNIT" labelIcon="factory" labelColor="amber">
+        <div 
+          className="absolute z-20" 
+          style={{ 
+            ...movingStyle(
+              lerp(80, 25, easedProgress),  // Was: 100 to 0 (100% range) → Now: 80 to 25 (55% range)
+              lerp(60, 45, easedProgress)   // Was: 70 to 40 (30% range) → Now: 60 to 45 (15% range)
+            ), 
+            width: '500px' 
+          }}
+        >
+          <img src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/box_khtoll.png" alt="Package" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />
+        </div>
+      </AnimationWrapper>
+    );
+  };
 
+  // ⬅️ REDUCED MOVEMENT RANGE - Airplane
   const LogisticsAnimation = ({ progress }: { progress: number }) => {
-    const [startX, startY, endX, endY] = [200, 150, -100, -100];
+    const easedProgress = easeOutCubic(progress);
     return (
       <div className="relative w-full h-full overflow-hidden rounded-2xl">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/aerobg_ajdch7.jpg')` }} />
-        <div className="absolute z-20" style={{ ...movingStyle(lerp(startX, endX, progress), lerp(startY, endY, progress)), width: '300px' }}>
+        <div 
+          className="absolute z-20" 
+          style={{ 
+            ...movingStyle(
+              lerp(100, 20, easedProgress),  // Was: 200 to -100 (300% range) → Now: 100 to 20 (80% range)
+              lerp(80, 30, easedProgress)    // Was: 150 to -100 (250% range) → Now: 80 to 30 (50% range)
+            ), 
+            width: '300px' 
+          }}
+        >
           <img src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/aeroimg_je0lsg.png" alt="Airplane" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.3))' }} />
         </div>
         <div className="absolute top-4 left-4 bg-white/95 dark:bg-slate-800/95 rounded-xl p-3 shadow-lg z-30">
@@ -165,7 +205,6 @@ const Process: React.FC = () => {
 
   const animations = [HarvestAnimation, QualityLabAnimation, ProcessingAnimation, LogisticsAnimation];
 
-  // Calculate the horizontal translation
   const translateX = horizontalProgress * (steps.length - 1) * -100;
 
   return (
@@ -173,7 +212,7 @@ const Process: React.FC = () => {
       ref={sectionRef} 
       id="process" 
       className="relative bg-surface-light dark:bg-surface-dark border-t-2 border-slate-900 dark:border-white"
-      style={{ height: '300vh' }} // Tall section for scroll distance
+      style={{ height: '800vh' }}
     >
       {/* Sticky Container */}
       <div 
@@ -199,7 +238,7 @@ const Process: React.FC = () => {
               {steps.map((step, i) => (
                 <div key={step.id} className="flex flex-col items-center">
                   <div 
-                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${
                       activeStep >= i 
                         ? `bg-${step.color}-500 text-white shadow-lg` 
                         : 'bg-slate-200 dark:bg-slate-700 text-slate-400'
@@ -207,7 +246,7 @@ const Process: React.FC = () => {
                   >
                     <span className="material-symbols-outlined text-lg">{step.icon}</span>
                   </div>
-                  <span className={`text-[10px] font-medium mt-1 transition-all ${activeStep >= i ? 'text-slate-700 dark:text-white' : 'text-slate-400'}`}>
+                  <span className={`text-[10px] font-medium mt-1 transition-all duration-500 ${activeStep >= i ? 'text-slate-700 dark:text-white' : 'text-slate-400'}`}>
                     {step.title}
                   </span>
                 </div>
@@ -215,7 +254,7 @@ const Process: React.FC = () => {
             </div>
             <div className="relative h-1 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
               <div 
-                className="absolute h-full bg-gradient-to-r from-green-500 via-cyan-500 via-amber-500 to-sky-500 rounded-full transition-all duration-100"
+                className="absolute h-full bg-gradient-to-r from-green-500 via-cyan-500 via-amber-500 to-sky-500 rounded-full transition-all duration-300"
                 style={{ width: `${horizontalProgress * 100}%` }}
               />
             </div>
@@ -224,7 +263,7 @@ const Process: React.FC = () => {
           {/* Horizontal Scroll Cards */}
           <div className="flex-1 overflow-hidden relative">
             <div 
-              className="flex h-full transition-transform duration-100 ease-out"
+              className="flex h-full transition-transform duration-300 ease-out"
               style={{ 
                 transform: `translateX(${translateX}vw)`,
                 width: `${steps.length * 100}vw`,
@@ -273,7 +312,7 @@ const Process: React.FC = () => {
                             </div>
                             <div className="h-2 bg-white/20 rounded-full overflow-hidden">
                               <div 
-                                className="h-full bg-white rounded-full transition-all duration-200"
+                                className="h-full bg-white rounded-full transition-all duration-500"
                                 style={{ width: `${progress * 100}%` }}
                               />
                             </div>
@@ -299,7 +338,7 @@ const Process: React.FC = () => {
               {steps.map((_, i) => (
                 <div 
                   key={i} 
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                  className={`h-1.5 rounded-full transition-all duration-500 ${
                     activeStep === i ? 'bg-primary w-8' : 'bg-slate-300 dark:bg-slate-600 w-1.5'
                   }`}
                 />

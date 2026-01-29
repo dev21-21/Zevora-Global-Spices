@@ -47,9 +47,9 @@ const SystemBar: React.FC = () => {
       
       {/* Right side - Business info */}
       <div className="flex items-center gap-4">
-        <span className="hidden md:inline text-slate-500 tracking-wide">
+        {/* <span className="hidden md:inline text-slate-500 tracking-wide">
           Export License: #8892
-        </span>
+        </span> */}
         <span className="text-slate-600 hidden md:inline">|</span>
         <span className="flex items-center gap-1.5">
           <span className="text-primary font-semibold">50+</span>

@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
               <span className="font-display text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-none">
                 Zevora<span className="text-primary"> Global Spices</span>
               </span>
-              <span className="text-[9px] font-mono text-slate-500 tracking-[0.1em]">Est. 2015 · Exp. Lic. #8892</span>
+              <span className="text-[9px] font-mono text-slate-500 tracking-[0.1em]">Est. 2015 </span>
             </div>
           </div>
 

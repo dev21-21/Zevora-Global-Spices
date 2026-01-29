@@ -232,7 +232,7 @@ const Products: React.FC = () => {
         {/* Products Grid - Fixed border clipping with padding */}
         <div 
           ref={scrollContainerRef}
-          className="flex overflow-x-auto gap-6 px-1 py-2 snap-x snap-mandatory scroll-smooth hide-scrollbar"
+          className="flex overflow-x-auto gap-6 px-1 py-2 snap-x snap-mandatory scroll-smooth hide-scrollbar scroll-pl-4 "
         >
           {products.map((product) => (
             <div 
