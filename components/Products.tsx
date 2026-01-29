@@ -13,7 +13,7 @@ const products: ExtendedProduct[] = [
     name: 'Black Pepper',
     ref: 'SKU-BP001',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBpl01UhQhmF2_T4t1COYWG0azajPZPlpVm23l5ZEAmYHhY_LpuNWtfVC6aDrTTmHaQBKLclkeLuyMOPyXmkB_MQiuFC6ZCWglR-Am-8l0XlZtYRTNm7owHh6cJWAq_HLZ9wlz9eS9iIyIAOVzMIyAYJ7INh6ikCp1gB_I82ocrAIiJYwMgJOMqcpmgtMIofazMyiXWjghTB3oWJw7zwAU3wbGaNYtrZ1j8uRtQY3_JL56tV7T8IdFmgUx7jDCXxQHgbEZF-18wpqh6',
-    specs: { PIPERINE: '>6%', MOISTURE: '<11%', ORIGIN: 'IDUKKI', GRADE: 'MG-1' },
+    specs: { PIPERINE: '>6%', MOISTURE: '<11%', ORIGIN: 'KERALA', GRADE: 'MG-1' },
     description: 'The King of Spices, sourced from high-altitude vines.',
     bestSeller: true,
     rating: 4.9,
@@ -24,7 +24,7 @@ const products: ExtendedProduct[] = [
     name: 'Cardamom',
     ref: 'SKU-GC042',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmSsqcHODZNqLKprqRsEocdaObsRQvXZk8EaR0kmg3RtmeESIRIGBJsRlrnBv7GrZ3EEaq2oEXfhdoI974nn5cVR5NacdI7laxxUJ1Si5RQndIYHlUOGVDKtKPbOEuU4XAuFoG6Js2l-8LslJN54rULb56ACOB3mDPGPJDYStzCjaQhUqAXofadT_4KVnJLoLwDAGBTZEVPZRT-RYc3kFqZPGazIspw4UxCeMQw1oCDrI50TNWDJhuoUVWAODBAwZD6yRfnPhfOAKY',
-    specs: { SIZE: '8MM+', COLOR: 'DEEP GREEN', ORIGIN: 'ALLEPPEY', TYPE: 'EXTRA BOLD' },
+    specs: { SIZE: '8MM+', COLOR: 'DEEP GREEN', ORIGIN: 'KERALA', TYPE: 'EXTRA BOLD' },
     description: 'Queen of spices with intense aroma and green pods.',
     bestSeller: true,
     rating: 4.8,
@@ -35,7 +35,7 @@ const products: ExtendedProduct[] = [
     name: 'Turmeric',
     ref: 'SKU-TM089',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBRA-9XZpVfJHtH1MShg32rownhbmrpK6J2swvHBUFkxHLYMxNXxa_U_gTwe8qj8QfF9GlZFgSjGixPuYx8WCGmAnAE95468_SVC5mVAEl-TCCyPyAgr8o6E97foUT2jy2yCXM9vtJAz6d1SS2H-zVrV5wOeAuzl1SzDjleQM4MMnx8B9ryzv7_BrrTxxhM9ta3QRe9dR9fN4mG_O_4PRWqzXKt1PyjT20s6aPWxYfQu3UxiB3cM31CfQrLbB3NV0_kaDZavUPZve3o',
-    specs: { CURCUMIN: '>5%', FORM: 'FINGER/POWDER', ORIGIN: 'WAYANAD', PROCESS: 'STEAMED' },
+    specs: { CURCUMIN: '>5%', FORM: 'FINGER/POWDER', ORIGIN: 'KERALA', PROCESS: 'STEAMED' },
     description: 'High curcumin content with vibrant golden yellow color.',
     rating: 4.7,
     reviews: 1456
@@ -45,7 +45,7 @@ const products: ExtendedProduct[] = [
     name: 'Cloves',
     ref: 'SKU-CL102',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBy96QomCqoDipJ7eunQXJpVa2mEtxjPKJw-JU-c63d9jNchPScWFSK7IsNAMj92ruMV2978BbL00O3jLVOpU36GRfKqkxQPMlDhE4vVCGQbXKA85VUknioDcPFhrfNE-AhIRo1eZS2UQJ6wmhyatO3DF6zXGRJ8n7I6mbCsCYTNfKRkDf62KSN6NCHp5hQfvKeoUedv1M5v65-YvnXmPquFIbZHIZ9eCFdU0BTP0Xfpe2azzMwCDJKwbXkItUqXts2bznjNfQlielB',
-    specs: { GRADE: 'LAL PARI', OIL: '>18%', SIZE: 'UNIFORM', PURITY: '99%' },
+    specs: { GRADE: 'LAL PARI', OIL: '>18%',ORIGIN: 'KERALA', SIZE: 'UNIFORM', PURITY: '99%' },
     description: 'Aromatic flower buds with rich oil content.',
     rating: 4.6,
     reviews: 987
@@ -85,7 +85,7 @@ const products: ExtendedProduct[] = [
     name: 'Cashew Nuts',
     ref: 'SKU-CW145',
     image: 'https://static.wixstatic.com/media/24d4b1_b0fa25438c6b4d35990c7f8db1b443d5~mv2.jpg/v1/fit/w_614,h_614,q_90,enc_avif,quality_auto/24d4b1_b0fa25438c6b4d35990c7f8db1b443d5~mv2.jpg',
-    specs: { GRADE: 'W320', COLOR: 'WHITE', ORIGIN: 'KOLLAM', SIZE: 'LARGE' },
+    specs: { GRADE: 'W320', COLOR: 'WHITE', ORIGIN: 'KERALA', SIZE: 'LARGE' },
     description: 'Premium grade cashews, crisp and naturally sweet.',
     rating: 4.8,
     reviews: 2156
@@ -95,7 +95,7 @@ const products: ExtendedProduct[] = [
     name: 'Coffee Products',
     ref: 'SKU-CF234',
     image: ' https://m.media-amazon.com/images/I/31HNx7ZvnFL.jpg',
-    specs: { TYPE: 'ARABICA', ROAST: 'MEDIUM', ORIGIN: 'WAYANAD', GRADE: 'AA' },
+    specs: { TYPE: 'ARABICA', ROAST: 'MEDIUM', ORIGIN: 'KERALA', GRADE: 'AA' },
     description: 'Premium Arabica coffee beans from Western Ghats.',
     rating: 4.7,
     reviews: 1789
@@ -105,7 +105,7 @@ const products: ExtendedProduct[] = [
     name: 'Tea Products',
     ref: 'SKU-TE187',
     image: 'https://t4.ftcdn.net/jpg/16/15/40/99/240_F_1615409949_XXXAoFOCayjZcOOYQuWRoI0Jk6xH2A6n.jpg',
-    specs: { TYPE: 'CTC', GRADE: 'PREMIUM', ORIGIN: 'MUNNAR', COLOR: 'GOLDEN' },
+    specs: { TYPE: 'CTC', GRADE: 'PREMIUM', ORIGIN: 'KERALA', COLOR: 'GOLDEN' },
     description: 'Fresh tea leaves from high-altitude estates.',
     rating: 4.6,
     reviews: 1432
