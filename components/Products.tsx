@@ -10,22 +10,23 @@ interface ExtendedProduct extends Product {
 const products: ExtendedProduct[] = [
   {
     id: 'p1',
-    name: 'Black Pepper',
+    name: 'Cardamom',
     ref: 'SKU-BP001',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBpl01UhQhmF2_T4t1COYWG0azajPZPlpVm23l5ZEAmYHhY_LpuNWtfVC6aDrTTmHaQBKLclkeLuyMOPyXmkB_MQiuFC6ZCWglR-Am-8l0XlZtYRTNm7owHh6cJWAq_HLZ9wlz9eS9iIyIAOVzMIyAYJ7INh6ikCp1gB_I82ocrAIiJYwMgJOMqcpmgtMIofazMyiXWjghTB3oWJw7zwAU3wbGaNYtrZ1j8uRtQY3_JL56tV7T8IdFmgUx7jDCXxQHgbEZF-18wpqh6',
-    specs: { PIPERINE: '>6%', MOISTURE: '<11%', ORIGIN: 'KERALA', GRADE: 'MG-1' },
-    description: 'The King of Spices, sourced from high-altitude vines.',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmSsqcHODZNqLKprqRsEocdaObsRQvXZk8EaR0kmg3RtmeESIRIGBJsRlrnBv7GrZ3EEaq2oEXfhdoI974nn5cVR5NacdI7laxxUJ1Si5RQndIYHlUOGVDKtKPbOEuU4XAuFoG6Js2l-8LslJN54rULb56ACOB3mDPGPJDYStzCjaQhUqAXofadT_4KVnJLoLwDAGBTZEVPZRT-RYc3kFqZPGazIspw4UxCeMQw1oCDrI50TNWDJhuoUVWAODBAwZD6yRfnPhfOAKY',
+    
+    specs: { SIZE: '8MM+', COLOR: 'DEEP GREEN', ORIGIN: 'KERALA', TYPE: 'EXTRA BOLD' },
+    description: 'Queen of spices with intense aroma and green pods.',
     bestSeller: true,
     rating: 4.9,
     reviews: 2847
   },
   {
     id: 'p2',
-    name: 'Cardamom',
+    name: 'Black Pepper',
     ref: 'SKU-GC042',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmSsqcHODZNqLKprqRsEocdaObsRQvXZk8EaR0kmg3RtmeESIRIGBJsRlrnBv7GrZ3EEaq2oEXfhdoI974nn5cVR5NacdI7laxxUJ1Si5RQndIYHlUOGVDKtKPbOEuU4XAuFoG6Js2l-8LslJN54rULb56ACOB3mDPGPJDYStzCjaQhUqAXofadT_4KVnJLoLwDAGBTZEVPZRT-RYc3kFqZPGazIspw4UxCeMQw1oCDrI50TNWDJhuoUVWAODBAwZD6yRfnPhfOAKY',
-    specs: { SIZE: '8MM+', COLOR: 'DEEP GREEN', ORIGIN: 'KERALA', TYPE: 'EXTRA BOLD' },
-    description: 'Queen of spices with intense aroma and green pods.',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBpl01UhQhmF2_T4t1COYWG0azajPZPlpVm23l5ZEAmYHhY_LpuNWtfVC6aDrTTmHaQBKLclkeLuyMOPyXmkB_MQiuFC6ZCWglR-Am-8l0XlZtYRTNm7owHh6cJWAq_HLZ9wlz9eS9iIyIAOVzMIyAYJ7INh6ikCp1gB_I82ocrAIiJYwMgJOMqcpmgtMIofazMyiXWjghTB3oWJw7zwAU3wbGaNYtrZ1j8uRtQY3_JL56tV7T8IdFmgUx7jDCXxQHgbEZF-18wpqh6',
+    specs: { PIPERINE: '>6%', MOISTURE: '<11%', ORIGIN: 'KERALA', GRADE: 'MG-1' },
+    description: 'The King of Spices, sourced from high-altitude vines.',
     bestSeller: true,
     rating: 4.8,
     reviews: 1923

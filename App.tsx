@@ -14,7 +14,7 @@ import Team from './components/Team';
 function App() {
   return (
     <>
-      <SystemBar />
+      {/* <SystemBar /> */}
       <Navbar />
       <main>
         <Hero />

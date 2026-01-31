@@ -9,24 +9,37 @@ const Navbar: React.FC = () => {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           
-          {/* Logo */}
-          <div className="flex items-center gap-3 group cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
-            <div className="h-11 w-11 border-2 border-slate-900 dark:border-white text-primary flex items-center justify-center bg-white dark:bg-black relative overflow-hidden transition-all group-hover:rotate-90 rounded-xl shadow-md">
-              <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
-                <div className="border-r border-b border-primary/20"></div>
-                <div className="border-b border-primary/20"></div>
-                <div className="border-r border-primary/20"></div>
-                <div></div>
-              </div>
-              <span className="material-symbols-outlined text-2xl relative z-10">spa</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-none">
-                Zevora<span className="text-primary"> Global Spices</span>
-              </span>
-              <span className="text-[9px] font-mono text-slate-500 tracking-[0.1em]">Est. 2015 </span>
-            </div>
-          </div>
+          {/* Logo - Professional Alignment */}
+          {/* Large Logo */}
+<a 
+  href="#home"
+  className="flex items-center gap-4 group cursor-pointer select-none"
+  onClick={(e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }}
+>
+  {/* Big Logo - No Border */}
+  <div className="relative flex-shrink-0 h-20 w-20 sm:h-24 sm:w-24 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
+    <img 
+      src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1769765458/logo_1-removebg-preview_ufjqnm.png" 
+      alt="Zevora Global Spices Logo"
+      className="h-full w-full object-contain"
+    />
+  </div>
+  
+  {/* Brand Text */}
+  
+<div className="hidden sm:flex flex-col justify-center">
+  <span className="font-display text-sm lg:text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
+    Zevora<span className="text-primary"> Global Spices</span>
+  </span>
+  <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 tracking-[0.12em] uppercase mt-1">
+    Premium Spice Exporters
+  </span>
+</div>
+
+</a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-1 items-center text-sm font-sans font-medium text-slate-700 dark:text-slate-300">
@@ -47,12 +60,12 @@ const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             {/* Download button */}
             <a 
-             href="/brochure/ZEVORA GLOBAL SPICES.pdf" 
-          download='ZEVORA GLOBAL SPICES.pdf'
-              className="hidden sm:flex h-10 items-center justify-center bg-primary px-6 text-sm font-sans font-semibold text-slate-900 shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all rounded-xl"
+              href="/brochure/ZEVORA GLOBAL SPICES.pdf" 
+              download='ZEVORA GLOBAL SPICES.pdf'
+              className="hidden sm:flex h-10 items-center justify-center bg-primary px-5 lg:px-6 text-sm font-sans font-semibold text-slate-900 shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all rounded-xl whitespace-nowrap"
             >
               Download Brochure
             </a>
@@ -63,15 +76,21 @@ const Navbar: React.FC = () => {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
-              <span className="material-symbols-outlined">menu</span>
+              <span className="material-symbols-outlined">
+                {mobileMenuOpen ? 'close' : 'menu'}
+              </span>
             </button>
           </div>
         </div>
       </div>
       
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark p-4 flex flex-col gap-2 shadow-lg">
+      {/* Mobile Menu with Animation */}
+      <div 
+        className={`md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="p-4 flex flex-col gap-2">
           {[
             { name: 'Home', href: '#home' },
             { name: 'Products', href: '#products' },
@@ -89,8 +108,17 @@ const Navbar: React.FC = () => {
               {item.name}
             </a>
           ))}
+          
+          {/* Mobile Download Button */}
+          <a 
+            href="/brochure/ZEVORA GLOBAL SPICES.pdf" 
+            download='ZEVORA GLOBAL SPICES.pdf'
+            className="sm:hidden mt-2 flex h-12 items-center justify-center bg-primary px-6 text-sm font-sans font-semibold text-slate-900 shadow-lg rounded-xl"
+          >
+            Download Brochure
+          </a>
         </div>
-      )}
+      </div>
     </header>
   );
 };

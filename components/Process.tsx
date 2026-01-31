@@ -4,6 +4,7 @@ const Process: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState<number[]>([0, 0, 0, 0]);
   const [horizontalProgress, setHorizontalProgress] = useState(0);
   const [activeStep, setActiveStep] = useState(0);
+  
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const stickyRef = useRef<HTMLDivElement | null>(null);
 
@@ -35,175 +36,127 @@ const Process: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const steps = useMemo(() => [
-    { id: '01', title: 'Harvest', icon: 'agriculture', subtitle: 'Farm Fresh Spices', detail: 'Kerala Plantations', color: 'green' },
-    { id: '02', title: 'Quality Lab', icon: 'science', subtitle: 'ISO 22000 Certified', detail: 'Lab Tested & Verified', color: 'cyan' },
-    { id: '03', title: 'Processing', icon: 'inventory_2', subtitle: 'Vacuum Sealed', detail: 'Individual & Bulk Packs', color: 'amber' },
-    { id: '04', title: 'Logistics', icon: 'flight_takeoff', subtitle: 'Air & Sea Freight', detail: 'Worldwide Delivery', color: 'sky' },
+    { 
+      id: '01', 
+      title: 'Harvest', 
+      icon: 'agriculture', 
+      subtitle: 'Farm Fresh Spices', 
+      detail: 'Kerala Plantations', 
+      color: 'green',
+      bgImage: 'https://images.unsplash.com/photo-1627920769842-6887c6df05ca?q=80&w=1333&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      label: 'KERALA SPICE FIELDS',
+      labelIcon: 'location_on',
+      description: 'Hand-picked premium spices from Kerala\'s finest plantations'
+    },
+    { 
+      id: '02', 
+      title: 'Quality Lab', 
+      icon: 'science', 
+      subtitle: 'ISO 22000 Certified', 
+      detail: 'Lab Tested & Verified', 
+      color: 'cyan',
+      bgImage: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1200&q=80',
+      label: 'QUALITY TESTING',
+      labelIcon: 'science',
+      description: 'Rigorous testing ensures premium quality standards'
+    },
+    { 
+      id: '03', 
+      title: 'Processing', 
+      icon: 'inventory_2', 
+      subtitle: 'Vacuum Sealed', 
+      detail: 'Individual & Bulk Packs', 
+      color: 'amber',
+      bgImage: 'https://www.lummi.ai/api/render/image/a0f5cd5d-c1ff-4c1a-80a6-22f623134ed1?token=eyJhbGciOiJIUzI1NiJ9.eyJpZHMiOlsiYTBmNWNkNWQtYzFmZi00YzFhLTgwYTYtMjJmNjIzMTM0ZWQxIl0sInJlc29sdXRpb24iOiJtZWRpdW0iLCJyZW5kZXJTcGVjcyI6eyJlZmZlY3RzIjp7InJlZnJhbWUiOnt9fX0sInNob3VsZEF1dG9Eb3dubG9hZCI6ZmFsc2UsImp0aSI6InJ6YmhvMEpUWlFFNE9sZlB0ZFAyUiIsImlhdCI6MTc2OTg3NTI1MCwiZXhwIjoxNzY5ODc1MzEwfQ.bRJX83aUzVWhM6y01qlEaSykJGdl4Yf9SPQURo1o5Pg',
+      label: 'PROCESSING UNIT',
+      labelIcon: 'factory',
+      description: 'State-of-the-art processing for maximum freshness'
+    },
+    { 
+      id: '04', 
+      title: 'Logistics', 
+      icon: 'flight_takeoff', 
+      subtitle: 'Air & Sea Freight', 
+      detail: 'Worldwide Delivery', 
+      color: 'sky',
+      bgImage: 'https://images.unsplash.com/photo-1566935843973-aed0ddcb0ecc?q=80&w=1129&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      label: 'GLOBAL SHIPPING',
+      labelIcon: 'flight_takeoff',
+      description: 'Fast & reliable delivery to any destination worldwide'
+    },
   ], []);
 
-  // Smooth lerp function
-  const lerp = (start: number, end: number, progress: number) => start + progress * (end - start);
+  const easeInOutSine = (t: number) => -(Math.cos(Math.PI * t) - 1) / 2;
 
-  // Easing function for smoother animation
-  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
-  const easeInOutQuad = (t: number) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-
-  const movingStyle = (x: number, y: number) => ({
-    left: `${x}%`, 
-    top: `${y}%`,
-    transform: 'translate(-50%, -50%)',
-    transition: 'left 0.4s ease-out, top 0.4s ease-out', // ⬅️ Slower transition
-  });
-
-  const AnimationWrapper = ({ bg, children, label, labelIcon, labelColor = 'green' }: any) => (
+  const StaticCard = ({ step }: { step: typeof steps[0] }) => (
     <div className="relative w-full h-full overflow-hidden rounded-2xl">
-      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${bg}')` }} />
-      {children}
-      <div className="absolute top-4 left-4 bg-white/95 dark:bg-slate-800/95 px-4 py-2 rounded-lg shadow-md z-30">
+      <div 
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105" 
+        style={{ backgroundImage: `url('${step.bgImage}')` }} 
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
+      
+      <div className="absolute top-4 left-4 bg-white/95 dark:bg-slate-800/95 px-4 py-2 rounded-lg shadow-md z-10">
         <div className="flex items-center gap-2">
-          <span className={`material-symbols-outlined text-${labelColor}-600`}>{labelIcon}</span>
-          <span className="text-sm font-mono text-slate-600 dark:text-slate-300 tracking-wide">{label}</span>
+          <span className={`material-symbols-outlined text-${step.color}-600`}>{step.labelIcon}</span>
+          <span className="text-sm font-mono text-slate-600 dark:text-slate-300 tracking-wide">{step.label}</span>
+        </div>
+      </div>
+      
+      <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+        <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+          <h3 className="text-2xl font-bold text-white mb-2">{step.subtitle}</h3>
+          <p className="text-white/80 text-sm">{step.description}</p>
         </div>
       </div>
     </div>
   );
 
-  // ⬅️ REDUCED MOVEMENT RANGE - Tractor
-  const HarvestAnimation = ({ progress }: { progress: number }) => {
-    const easedProgress = easeOutCubic(progress);
-    return (
-      <AnimationWrapper bg="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/bg_hxyh3k.jpg" label="KERALA SPICE FIELDS" labelIcon="location_on">
-        <div 
-          className="absolute z-20 will-change-transform" 
-          style={{ 
-            ...movingStyle(
-              lerp(85, 15, easedProgress),  // Was: 100 to 2 (98% range) → Now: 85 to 15 (70% range)
-              lerp(35, 65, easedProgress)   // Was: 5 to 120 (115% range) → Now: 35 to 65 (30% range)
-            ), 
-            width: '400px' 
-          }}
-        >
-          <img src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828456/tra_mmokoi.png" alt="Tractor" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />
-        </div>
-      </AnimationWrapper>
-    );
-  };
-
-  const QualityLabAnimation = ({ progress }: { progress: number }) => {
-    const checks = [
-      { label: 'Purity Check', icon: 'verified', threshold: 0.3 },
-      { label: 'Grade Analysis', icon: 'workspace_premium', threshold: 0.55 },
-      { label: 'Certification', icon: 'check_circle', threshold: 0.8 },
-    ];
-
-    return (
-      <div className="relative w-full h-full overflow-hidden rounded-2xl">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1200&q=80')` }}>
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/80 to-slate-900/70 backdrop-blur-[2px]" />
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center p-4 z-20">
-          <div className="bg-white/98 dark:bg-slate-800/98 rounded-xl shadow-2xl border border-cyan-200 dark:border-cyan-800 w-full max-w-xs backdrop-blur-sm">
-            <div className="border-b border-slate-200 dark:border-slate-700 p-3 bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 rounded-t-xl">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center shadow-lg">
-                  <span className="material-symbols-outlined text-lg text-white">science</span>
-                </div>
-                <div>
-                  <h3 className="text-sm font-bold text-slate-800 dark:text-white">Quality Analysis</h3>
-                  <p className="text-[10px] text-slate-500 dark:text-slate-400">ISO 22000:2018</p>
-                </div>
-              </div>
-            </div>
-            <div className="p-3 space-y-2">
-              {checks.map((check, i) => {
-                const isComplete = progress > check.threshold;
-                const isActive = progress >= check.threshold - 0.05 && progress <= check.threshold + 0.1;
-                return (
-                  <div key={i} className={`flex items-center gap-2 p-2 rounded-lg transition-all duration-500 ${isComplete ? 'bg-green-50 dark:bg-green-900/20 border border-green-300 dark:border-green-700' : 'bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600'}`}>
-                    <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-500 ${isComplete ? 'bg-green-500' : 'bg-slate-200 dark:bg-slate-600'}`}>
-                      {isComplete ? <span className={`material-symbols-outlined text-white text-xs ${isActive ? 'animate-bounce' : ''}`}>check</span> : <div className="w-2 h-2 border border-dashed border-slate-400 rounded-full" />}
-                    </div>
-                    <span className={`text-xs font-medium transition-colors duration-500 ${isComplete ? 'text-green-700 dark:text-green-400' : 'text-slate-500'}`}>{check.label}</span>
-                    <div className={`ml-auto px-1.5 py-0.5 rounded text-[9px] font-medium transition-all duration-500 ${isComplete ? 'bg-green-500 text-white' : 'bg-slate-200 dark:bg-slate-600 text-slate-400'}`}>{isComplete ? 'Pass' : 'Wait'}</div>
-                  </div>
-                );
-              })}
-            </div>
-            <div className="p-3 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 rounded-b-xl">
-              <div className="flex justify-between mb-1">
-                <span className="text-[10px] text-slate-500">Progress</span>
-                <span className="text-xs font-bold text-cyan-600">{Math.round(progress * 100)}%</span>
-              </div>
-              <div className="h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-500" style={{ width: `${progress * 100}%` }} />
-              </div>
-              {progress > 0.9 && (
-                <div className="mt-2 flex items-center justify-center gap-1 p-1.5 bg-green-500 rounded-lg animate-pulse">
-                  <span className="material-symbols-outlined text-white text-sm">verified</span>
-                  <span className="text-xs font-bold text-white">APPROVED</span>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  // ⬅️ REDUCED MOVEMENT RANGE - Package/Box
-  const ProcessingAnimation = ({ progress }: { progress: number }) => {
-    const easedProgress = easeInOutQuad(progress);
-    return (
-      <AnimationWrapper bg="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/boxbg_zio8eu.jpg" label="PROCESSING UNIT" labelIcon="factory" labelColor="amber">
-        <div 
-          className="absolute z-20" 
-          style={{ 
-            ...movingStyle(
-              lerp(80, 25, easedProgress),  // Was: 100 to 0 (100% range) → Now: 80 to 25 (55% range)
-              lerp(60, 45, easedProgress)   // Was: 70 to 40 (30% range) → Now: 60 to 45 (15% range)
-            ), 
-            width: '500px' 
-          }}
-        >
-          <img src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/box_khtoll.png" alt="Package" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />
-        </div>
-      </AnimationWrapper>
-    );
-  };
-
-  // ⬅️ REDUCED MOVEMENT RANGE - Airplane
-  const LogisticsAnimation = ({ progress }: { progress: number }) => {
-    const easedProgress = easeOutCubic(progress);
-    return (
-      <div className="relative w-full h-full overflow-hidden rounded-2xl">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/aerobg_ajdch7.jpg')` }} />
-        <div 
-          className="absolute z-20" 
-          style={{ 
-            ...movingStyle(
-              lerp(100, 20, easedProgress),  // Was: 200 to -100 (300% range) → Now: 100 to 20 (80% range)
-              lerp(80, 30, easedProgress)    // Was: 150 to -100 (250% range) → Now: 80 to 30 (50% range)
-            ), 
-            width: '300px' 
-          }}
-        >
-          <img src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1768828455/aeroimg_je0lsg.png" alt="Airplane" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.3))' }} />
-        </div>
-        <div className="absolute top-4 left-4 bg-white/95 dark:bg-slate-800/95 rounded-xl p-3 shadow-lg z-30">
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-sky-500">flight_takeoff</span>
-            <span className="text-xs font-mono font-bold text-slate-700 dark:text-slate-300">SPICE-AIR 747</span>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const animations = [HarvestAnimation, QualityLabAnimation, ProcessingAnimation, LogisticsAnimation];
+  // Fixed positions - no dynamic tracking to prevent stuttering
+  // All images move from right edge (73%) to center (50%) like the tractor
+  const travelingImages = useMemo(() => [
+    {
+      src: 'https://res.cloudinary.com/dlnfi4gab/image/upload/v1769864136/tractor_new_ib0xhf.png',
+      alt: 'Tractor - Harvest to Quality Lab',
+      // Starts immediately, ends when Quality Lab is centered (0.375)
+      transitionStart: 0,
+      transitionEnd: 0.375,
+      width: 320,
+      noFade: true,
+      zIndex: 10,
+      startX: 73,  // Right edge of current panel
+      endX: 50,    // Center (behind next panel)
+    },
+    {
+      src: 'https://res.cloudinary.com/dlnfi4gab/image/upload/v1769864136/truck_new_pwbiom.png',
+      alt: 'Truck - Quality Lab to Processing',
+      // Starts when Quality Lab centered (0.375), ends when Processing centered (0.625)
+      transitionStart: 0.375,
+      transitionEnd: 0.625,
+      width: 280,
+      noFade: true,
+      zIndex: 10,
+      startX: 73,  // Right edge of Quality Lab panel
+      endX: 50,    // Center (behind Processing panel)
+    },
+    {
+      src: 'https://res.cloudinary.com/dlnfi4gab/image/upload/v1769863386/plain_new_zpac6i.png',
+      alt: 'Plane - Processing to Logistics',
+      // Starts when Processing centered (0.625), ends when Logistics centered (0.875)
+      transitionStart: 0.625,
+      transitionEnd: 0.875,
+      width: 240,
+      noFade: true,
+      zIndex: 10,
+      startX: 73,  // Right edge of Processing panel
+      endX: 50,    // Center (behind Logistics panel)
+    },
+  ], []); // Empty dependency array - positions never change
 
   const translateX = horizontalProgress * (steps.length - 1) * -100;
 
@@ -214,14 +167,63 @@ const Process: React.FC = () => {
       className="relative bg-surface-light dark:bg-surface-dark border-t-2 border-slate-900 dark:border-white"
       style={{ height: '800vh' }}
     >
-      {/* Sticky Container */}
       <div 
         ref={stickyRef}
         className="sticky top-0 h-screen overflow-hidden"
       >
         <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
         
-        <div className="h-full flex flex-col py-6 px-4 sm:px-6 lg:px-8">
+        {/* ===== TRAVELING IMAGES ===== */}
+        <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 10 }}>
+          {travelingImages.map((img, i) => {
+            // Calculate progress within this image's specific transition window
+            const rawProgress = (horizontalProgress - img.transitionStart) / (img.transitionEnd - img.transitionStart);
+            const clampedProgress = Math.max(0, Math.min(1, rawProgress));
+            const easedProgress = easeInOutSine(clampedProgress);
+
+            // Visibility check
+            const isInTransitionRange = 
+              horizontalProgress >= img.transitionStart && 
+              horizontalProgress <= img.transitionEnd;
+            
+            // All images fully visible during their transition (no fade)
+            const opacity = isInTransitionRange ? 1 : 0;
+            
+            // Calculate position - fixed coordinates ensure no stutter
+            const travelDistance = img.startX - img.endX;
+            const leftPos = img.startX - (easedProgress * travelDistance);
+            const topPos = 50;
+
+            return (
+              <div
+                key={i}
+                className="absolute will-change-transform"
+                style={{
+                  left: `${leftPos}%`,
+                  top: `${topPos}%`,
+                  transform: 'translate(-50%, -50%)',
+                  opacity: opacity,
+                  zIndex: img.zIndex,
+                  transition: 'opacity 0.3s ease-out', // Smooth fade in/out only
+                }}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="h-auto pointer-events-none select-none"
+                  style={{
+                    width: `${img.width}px`,
+                    maxWidth: '30vw',
+                    filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.5))',
+                  }}
+                />
+              </div>
+            );
+          })}
+        </div>
+        
+        {/* Main content */}
+        <div className="h-full flex flex-col py-6 px-4 sm:px-6 lg:px-8 relative z-20">
           {/* Header */}
           <div className="text-center mb-4 flex-shrink-0">
             <div className="inline-block border border-slate-400 dark:border-slate-600 bg-white dark:bg-slate-900 px-4 py-1.5 mb-2 rounded-full font-mono text-[10px] tracking-[0.15em] text-slate-600 dark:text-slate-400 shadow-sm">
@@ -271,7 +273,6 @@ const Process: React.FC = () => {
             >
               {steps.map((step, index) => {
                 const progress = scrollProgress[index];
-                const AnimationComponent = animations[index];
 
                 return (
                   <div
@@ -280,15 +281,15 @@ const Process: React.FC = () => {
                   >
                     <div className="max-w-5xl mx-auto h-full">
                       <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden h-full flex flex-col lg:flex-row">
-                        {/* Animation Area */}
-                        <div className="flex-1 lg:flex-[2] p-3 sm:p-4 min-h-[250px] lg:min-h-0">
+                        {/* Static Image Area - LEFT SIDE */}
+                        <div className="flex-1 lg:flex-[2] p-3 sm:p-4 min-h-[250px] lg:min-h-0 relative z-10">
                           <div className="h-full rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700">
-                            <AnimationComponent progress={progress} />
+                            <StaticCard step={step} />
                           </div>
                         </div>
 
-                        {/* Info Panel */}
-                        <div className={`lg:w-72 xl:w-80 bg-gradient-to-br from-${step.color}-500 to-${step.color}-600 p-4 sm:p-6 flex flex-col justify-between`}>
+                        {/* Info Panel - RIGHT SIDE - z-30 covers traveling images */}
+                        <div className={`lg:w-72 xl:w-80 bg-gradient-to-br from-${step.color}-500 to-${step.color}-600 p-4 sm:p-6 flex flex-col justify-between relative z-30 shadow-xl`}>
                           <div>
                             <div className="flex items-center gap-3 mb-4">
                               <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
