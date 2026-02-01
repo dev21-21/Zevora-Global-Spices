@@ -72,7 +72,7 @@ const Process: React.FC = () => {
       subtitle: 'Vacuum Sealed', 
       detail: 'Individual & Bulk Packs', 
       color: 'amber',
-      bgImage: 'https://www.lummi.ai/api/render/image/a0f5cd5d-c1ff-4c1a-80a6-22f623134ed1?token=eyJhbGciOiJIUzI1NiJ9.eyJpZHMiOlsiYTBmNWNkNWQtYzFmZi00YzFhLTgwYTYtMjJmNjIzMTM0ZWQxIl0sInJlc29sdXRpb24iOiJtZWRpdW0iLCJyZW5kZXJTcGVjcyI6eyJlZmZlY3RzIjp7InJlZnJhbWUiOnt9fX0sInNob3VsZEF1dG9Eb3dubG9hZCI6ZmFsc2UsImp0aSI6InJ6YmhvMEpUWlFFNE9sZlB0ZFAyUiIsImlhdCI6MTc2OTg3NTI1MCwiZXhwIjoxNzY5ODc1MzEwfQ.bRJX83aUzVWhM6y01qlEaSykJGdl4Yf9SPQURo1o5Pg',
+      bgImage: 'https://www.lummi.ai/api/render/image/dcff15d6-726b-4783-a922-6cb52410021a?token=eyJhbGciOiJIUzI1NiJ9.eyJpZHMiOlsiZGNmZjE1ZDYtNzI2Yi00NzgzLWE5MjItNmNiNTI0MTAwMjFhIl0sInJlc29sdXRpb24iOiJtZWRpdW0iLCJyZW5kZXJTcGVjcyI6eyJlZmZlY3RzIjp7InJlZnJhbWUiOnt9fX0sInNob3VsZEF1dG9Eb3dubG9hZCI6ZmFsc2UsImp0aSI6Ijg3VjJUaXE0bGdJTWQyZFBBZkRMYSIsImlhdCI6MTc2OTk0MTcwMiwiZXhwIjoxNzY5OTQxNzYyfQ.qEbV8OYQayWoTUWP_tslQJjh2mzC_OvukIS2jOfDNVg',
       label: 'PROCESSING UNIT',
       labelIcon: 'factory',
       description: 'State-of-the-art processing for maximum freshness'
