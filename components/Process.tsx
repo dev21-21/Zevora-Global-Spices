@@ -110,53 +110,48 @@ const Process: React.FC = () => {
       
       <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
         <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-          <h3 className="text-2xl font-bold text-white mb-2">{step.subtitle}</h3>
-          <p className="text-white/80 text-sm">{step.description}</p>
+          <h3 className="text-2xl font-display font-bold text-white mb-2">{step.subtitle}</h3>
+          <p className="text-white/80 text-sm font-sans">{step.description}</p>
         </div>
       </div>
     </div>
   );
 
-  // Fixed positions - no dynamic tracking to prevent stuttering
-  // All images move from right edge (73%) to center (50%) like the tractor
   const travelingImages = useMemo(() => [
     {
       src: 'https://res.cloudinary.com/dlnfi4gab/image/upload/v1769864136/tractor_new_ib0xhf.png',
       alt: 'Tractor - Harvest to Quality Lab',
-      // Starts immediately, ends when Quality Lab is centered (0.375)
       transitionStart: 0,
       transitionEnd: 0.375,
       width: 320,
       noFade: true,
       zIndex: 10,
-      startX: 73,  // Right edge of current panel
-      endX: 50,    // Center (behind next panel)
+      startX: 73,
+      endX: 50,
     },
     {
       src: 'https://res.cloudinary.com/dlnfi4gab/image/upload/v1769864136/truck_new_pwbiom.png',
       alt: 'Truck - Quality Lab to Processing',
-      // Starts when Quality Lab centered (0.375), ends when Processing centered (0.625)
       transitionStart: 0.375,
       transitionEnd: 0.625,
       width: 280,
       noFade: true,
       zIndex: 10,
-      startX: 73,  // Right edge of Quality Lab panel
-      endX: 50,    // Center (behind Processing panel)
+      startX: 73,
+      endX: 50,
     },
     {
       src: 'https://res.cloudinary.com/dlnfi4gab/image/upload/v1769863386/plain_new_zpac6i.png',
       alt: 'Plane - Processing to Logistics',
-      // Starts when Processing centered (0.625), ends when Logistics centered (0.875)
       transitionStart: 0.625,
       transitionEnd: 0.875,
       width: 240,
       noFade: true,
       zIndex: 10,
-      startX: 73,  // Right edge of Processing panel
-      endX: 50,    // Center (behind Logistics panel)
+      startX: 73,
+      endX: 50,
     },
-  ], []); // Empty dependency array - positions never change
+  ], []);
 
   const translateX = horizontalProgress * (steps.length - 1) * -100;
 
@@ -173,23 +168,19 @@ const Process: React.FC = () => {
       >
         <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
         
-        {/* ===== TRAVELING IMAGES ===== */}
+        {/* Traveling Images */}
         <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 10 }}>
           {travelingImages.map((img, i) => {
-            // Calculate progress within this image's specific transition window
             const rawProgress = (horizontalProgress - img.transitionStart) / (img.transitionEnd - img.transitionStart);
             const clampedProgress = Math.max(0, Math.min(1, rawProgress));
             const easedProgress = easeInOutSine(clampedProgress);
 
-            // Visibility check
             const isInTransitionRange = 
               horizontalProgress >= img.transitionStart && 
               horizontalProgress <= img.transitionEnd;
             
-            // All images fully visible during their transition (no fade)
             const opacity = isInTransitionRange ? 1 : 0;
             
-            // Calculate position - fixed coordinates ensure no stutter
             const travelDistance = img.startX - img.endX;
             const leftPos = img.startX - (easedProgress * travelDistance);
             const topPos = 50;
@@ -204,7 +195,7 @@ const Process: React.FC = () => {
                   transform: 'translate(-50%, -50%)',
                   opacity: opacity,
                   zIndex: img.zIndex,
-                  transition: 'opacity 0.3s ease-out', // Smooth fade in/out only
+                  transition: 'opacity 0.3s ease-out',
                 }}
               >
                 <img
@@ -248,7 +239,7 @@ const Process: React.FC = () => {
                   >
                     <span className="material-symbols-outlined text-lg">{step.icon}</span>
                   </div>
-                  <span className={`text-[10px] font-medium mt-1 transition-all duration-500 ${activeStep >= i ? 'text-slate-700 dark:text-white' : 'text-slate-400'}`}>
+                  <span className={`text-[10px] font-sans font-medium mt-1 transition-all duration-500 ${activeStep >= i ? 'text-slate-700 dark:text-white' : 'text-slate-400'}`}>
                     {step.title}
                   </span>
                 </div>
@@ -281,14 +272,14 @@ const Process: React.FC = () => {
                   >
                     <div className="max-w-5xl mx-auto h-full">
                       <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden h-full flex flex-col lg:flex-row">
-                        {/* Static Image Area - LEFT SIDE */}
+                        {/* Static Image Area */}
                         <div className="flex-1 lg:flex-[2] p-3 sm:p-4 min-h-[250px] lg:min-h-0 relative z-10">
                           <div className="h-full rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700">
                             <StaticCard step={step} />
                           </div>
                         </div>
 
-                        {/* Info Panel - RIGHT SIDE - z-30 covers traveling images */}
+                        {/* Info Panel */}
                         <div className={`lg:w-72 xl:w-80 bg-gradient-to-br from-${step.color}-500 to-${step.color}-600 p-4 sm:p-6 flex flex-col justify-between relative z-30 shadow-xl`}>
                           <div>
                             <div className="flex items-center gap-3 mb-4">
@@ -296,20 +287,20 @@ const Process: React.FC = () => {
                                 <span className="material-symbols-outlined text-2xl text-white">{step.icon}</span>
                               </div>
                               <div>
-                                <div className="text-white/70 text-xs font-mono">STEP {step.id}</div>
-                                <h3 className="text-xl font-bold text-white">{step.title}</h3>
+                                <div className="text-white/70 text-xs font-mono tracking-[0.1em]">STEP {step.id}</div>
+                                <h3 className="text-xl font-display font-bold text-white">{step.title}</h3>
                               </div>
                             </div>
                             <div className="space-y-2 mb-4">
-                              <p className="text-white font-medium">{step.subtitle}</p>
-                              <p className="text-white/70 text-sm">{step.detail}</p>
+                              <p className="text-white font-sans font-medium">{step.subtitle}</p>
+                              <p className="text-white/70 text-sm font-sans">{step.detail}</p>
                             </div>
                           </div>
 
                           <div>
                             <div className="flex justify-between items-center mb-2">
-                              <span className="text-white/70 text-xs">Progress</span>
-                              <span className="text-white font-bold font-mono">{Math.round(progress * 100)}%</span>
+                              <span className="text-white/70 text-xs font-sans">Progress</span>
+                              <span className="text-white font-mono font-bold">{Math.round(progress * 100)}%</span>
                             </div>
                             <div className="h-2 bg-white/20 rounded-full overflow-hidden">
                               <div 
@@ -320,7 +311,7 @@ const Process: React.FC = () => {
                             {progress > 0.9 && (
                               <div className="mt-3 flex items-center justify-center gap-2 p-2 bg-white/20 backdrop-blur-sm rounded-lg">
                                 <span className="material-symbols-outlined text-white">check_circle</span>
-                                <span className="text-white font-bold text-sm">Complete</span>
+                                <span className="text-white font-sans font-bold text-sm">Complete</span>
                               </div>
                             )}
                           </div>
@@ -345,7 +336,7 @@ const Process: React.FC = () => {
                 />
               ))}
             </div>
-            <span className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1">
+            <span className="text-xs text-slate-500 dark:text-slate-400 font-sans flex items-center gap-1">
               <span className="material-symbols-outlined text-sm animate-bounce">keyboard_double_arrow_down</span>
               Scroll to explore
             </span>

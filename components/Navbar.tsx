@@ -9,37 +9,34 @@ const Navbar: React.FC = () => {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           
-          {/* Logo - Professional Alignment */}
-          {/* Large Logo */}
-<a 
-  href="#home"
-  className="flex items-center gap-4 group cursor-pointer select-none"
-  onClick={(e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }}
->
-  {/* Big Logo - No Border */}
-  <div className="relative flex-shrink-0 h-20 w-20 sm:h-24 sm:w-24 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
-    <img 
-      src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1769765458/logo_1-removebg-preview_ufjqnm.png" 
-      alt="Zevora Global Spices Logo"
-      className="h-full w-full object-contain"
-    />
-  </div>
-  
-  {/* Brand Text */}
-  
-<div className="hidden sm:flex flex-col justify-center">
-  <span className="font-display text-sm lg:text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
-    Zevora<span className="text-primary"> Global Spices</span>
-  </span>
-  <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 tracking-[0.12em] uppercase mt-1">
-    Premium Spice Exporters
-  </span>
-</div>
-
-</a>
+          {/* Logo */}
+          <a 
+            href="#home"
+            className="flex items-center gap-4 group cursor-pointer select-none"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
+            {/* Logo Image */}
+            <div className="relative flex-shrink-0 h-20 w-20 sm:h-24 sm:w-24 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
+              <img 
+                src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1769765458/logo_1-removebg-preview_ufjqnm.png" 
+                alt="Zevora Global Spices Logo"
+                className="h-full w-full object-contain"
+              />
+            </div>
+            
+            {/* Brand Text */}
+            <div className="hidden sm:flex flex-col justify-center">
+              <span className="font-display text-sm lg:text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
+                Zevora<span className="text-primary"> Global Spices</span>
+              </span>
+              <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 tracking-[0.12em] uppercase mt-1">
+                Premium Spice Exporters
+              </span>
+            </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-1 items-center text-sm font-sans font-medium text-slate-700 dark:text-slate-300">
@@ -84,7 +81,7 @@ const Navbar: React.FC = () => {
         </div>
       </div>
       
-      {/* Mobile Menu with Animation */}
+      {/* Mobile Menu */}
       <div 
         className={`md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark overflow-hidden transition-all duration-300 ease-in-out ${
           mobileMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'

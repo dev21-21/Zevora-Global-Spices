@@ -32,29 +32,29 @@ const Hero: React.FC = () => {
             {/* Corner decoration */}
             <div className="absolute -left-6 -top-6 w-12 h-12 border-l-4 border-t-4 border-primary opacity-50 rounded-tl-lg"></div>
             
-            {/* Status badge - Professional mono font */}
+            {/* Status badge */}
             <div className="inline-flex items-center border border-primary/40 bg-slate-900/80 px-5 py-2.5 text-[11px] font-mono text-primary backdrop-blur-md mb-8 shadow-lg rounded-full tracking-[0.12em]">
               <span className="animate-pulse w-2 h-2 bg-primary rounded-full mr-3"></span>
               EXPORTING TO 50+ COUNTRIES
             </div>
             
-            {/* Main heading - Clean, professional display font */}
+            {/* Main heading */}
             <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-[1.0] tracking-[-0.03em]">
               Authentic<br/>
               <span className="text-primary">Kerala Spices</span>
             </h1>
             
-            {/* Subheading - Professional, readable */}
+            {/* Subheading */}
             <p className="font-sans text-xl sm:text-2xl md:text-3xl font-medium text-white/75 mb-10 tracking-[-0.01em]">
               Global Supply Chain Excellence
             </p>
             
-            {/* Info box - Technical details with mono font */}
+            {/* Info box */}
             <div className="max-w-xl bg-black/30 backdrop-blur-md p-6 border border-white/10 rounded-2xl mb-10">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="text-center sm:text-left">
                   <p className="font-mono text-[10px] text-slate-500 uppercase tracking-[0.15em] mb-1">Source</p>
-                  <p className="font-sans text-sm text-white font-medium">Idukki Hills</p>
+                  <p className="font-sans text-sm text-white font-medium">Kerala</p>
                 </div>
                 <div className="text-center sm:text-left">
                   <p className="font-mono text-[10px] text-slate-500 uppercase tracking-[0.15em] mb-1">Grade</p>
@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
               </div>
             </div>
 
-            {/* CTA buttons - Professional, clear call-to-action */}
+            {/* CTA buttons */}
             <div className="flex flex-wrap gap-4">
               <a 
                 href="#products" 
@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
               </a>
               <a 
                 href="/brochure/ZEVORA GLOBAL SPICES.pdf" 
-          download='ZEVORA GLOBAL SPICES.pdf'
+                download='ZEVORA GLOBAL SPICES.pdf'
                 className="h-14 px-10 flex items-center justify-center gap-2 border-2 border-white/70 text-white font-sans font-medium text-sm hover:bg-white hover:text-slate-900 transition-all duration-300 rounded-xl"
               >
                 <span className="material-symbols-outlined text-lg">download</span>
@@ -106,7 +106,7 @@ const Hero: React.FC = () => {
                   <BarChart data={data}>
                     <XAxis 
                       dataKey="name" 
-                      tick={{fill: '#64748b', fontSize: 10}} 
+                      tick={{fill: '#64748b', fontSize: 10, fontFamily: 'ui-monospace, monospace'}} 
                       tickLine={false} 
                       axisLine={false} 
                     />
@@ -119,7 +119,8 @@ const Hero: React.FC = () => {
                         fontSize: '12px', 
                         borderRadius: '12px',
                         padding: '10px 14px',
-                        boxShadow: '0 10px 40px rgba(0,0,0,0.3)'
+                        boxShadow: '0 10px 40px rgba(0,0,0,0.3)',
+                        fontFamily: 'ui-sans-serif, system-ui, sans-serif'
                       }}
                     />
                     <Bar dataKey="value" radius={[8, 8, 0, 0]}>

@@ -18,25 +18,25 @@ const Contact: React.FC = () => {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2 tracking-[-0.02em]">
               Get a Quote
             </h2>
-            <p className="text-slate-500 dark:text-slate-400 mb-8 font-sans text-sm">
+            <p className="text-slate-500 dark:text-slate-400 mb-8 font-sans font-medium text-sm">
               Response within 24 hours
             </p>
             
             <form className="space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-[10px] font-medium font-mono text-slate-600 dark:text-slate-400 tracking-[0.1em]">
+                  <label htmlFor="name" className="text-[10px] font-mono font-medium text-slate-600 dark:text-slate-400 tracking-[0.1em]">
                     FULL NAME
                   </label>
                   <input 
                     type="text" 
                     id="name" 
                     placeholder="John Smith" 
-                    className="w-full rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-transparent text-slate-900 dark:text-white focus:ring-0 focus:border-primary font-sans text-sm placeholder:text-slate-400 px-4 py-3 transition-colors"
+                    className="w-full rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-transparent text-slate-900 dark:text-white focus:ring-0 focus:border-primary font-sans font-medium text-sm placeholder:text-slate-400 px-4 py-3 transition-colors"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="company" className="text-[10px] font-medium font-mono text-slate-600 dark:text-slate-400 tracking-[0.1em]">
+                  <label htmlFor="company" className="text-[10px] font-mono font-medium text-slate-600 dark:text-slate-400 tracking-[0.1em]">
                     COMPANY
                   </label>
                   <input 
@@ -49,7 +49,7 @@ const Contact: React.FC = () => {
               </div>
               
               <div className="space-y-2">
-                <label htmlFor="email" className="text-[10px] font-medium font-mono text-slate-600 dark:text-slate-400 tracking-[0.1em]">
+                <label htmlFor="email" className="text-[10px] font-mono font-medium text-slate-600 dark:text-slate-400 tracking-[0.1em]">
                   EMAIL ADDRESS
                 </label>
                 <input 
@@ -61,7 +61,7 @@ const Contact: React.FC = () => {
               </div>
               
               <div className="space-y-2">
-                <label htmlFor="destination" className="text-[10px] font-medium font-mono text-slate-600 dark:text-slate-400 tracking-[0.1em]">
+                <label htmlFor="destination" className="text-[10px] font-mono font-medium text-slate-600 dark:text-slate-400 tracking-[0.1em]">
                   DESTINATION PORT
                 </label>
                 <input 
@@ -73,7 +73,7 @@ const Contact: React.FC = () => {
               </div>
               
               <div className="space-y-2">
-                <label htmlFor="message" className="text-[10px] font-medium font-mono text-slate-600 dark:text-slate-400 tracking-[0.1em]">
+                <label htmlFor="message" className="text-[10px] font-mono font-medium text-slate-600 dark:text-slate-400 tracking-[0.1em]">
                   PRODUCT REQUIREMENTS
                 </label>
                 <textarea 

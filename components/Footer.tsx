@@ -4,17 +4,17 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-900 text-white border-t-2 border-primary py-8 relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
-        {/* Copyright - Professional mono font */}
-        <p className="font-mono text-sm text-slate-400 tracking-wide">
+        {/* Copyright */}
+        <p className="font-sans text-sm text-slate-400 tracking-wide">
           © 2026 Kerala Spices Export Co. · All rights reserved.
         </p>
         
-        {/* Footer links - Sans font */}
+        {/* Footer links */}
         <div className="flex gap-6 text-sm">
-          <a href="#" className="font-sans text-slate-400 hover:text-primary transition-colors">
+          <a href="#" className="font-sans font-medium text-slate-400 hover:text-primary transition-colors">
             Privacy Policy
           </a>
-          <a href="#" className="font-sans text-slate-400 hover:text-primary transition-colors">
+          <a href="#" className="font-sans font-medium text-slate-400 hover:text-primary transition-colors">
             Terms of Service
           </a>
         </div>
