@@ -1,5 +1,5 @@
 import React from 'react';
-import SystemBar from './components/SystemBar';
+// import SystemBar from './components/SystemBar';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
