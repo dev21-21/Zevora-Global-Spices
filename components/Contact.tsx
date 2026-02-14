@@ -256,7 +256,7 @@ const Contact: React.FC = () => {
                     12/45 Spice Market Road
                   </p>
                   <p className="text-slate-400 font-sans text-sm">
-                    Kochi, Kerala, India
+                    Kerala, India
                   </p>
                   <p className="text-slate-400 font-mono text-xs tracking-wide mt-2">
                     PIN: 682001
