@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
               {showSolidBg ? (
     <img src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1770808015/zevora_email_logo_gpmu7s.png" alt="Zevora" className="h-full w-full object-contain" />
   ) : (
-    <img src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1771316433/zervo_white_logo_ztnvci.png" alt="Zevora" className="h-full w-full object-contain" />
+    <img src="https://res.cloudinary.com/dlnfi4gab/image/upload/v1771316701/zervo_white_logo_arkqng.png" alt="Zevora" className="h-full w-full object-contain" />
   )}
             </div>
           </a>
