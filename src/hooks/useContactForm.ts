@@ -1,5 +1,7 @@
 import { useState, useCallback } from 'react';
 import React from 'react';
+
+// ✅ Fix: Use Render URL as fallback for production
 const API_URL = import.meta.env.VITE_API_URL || 'https://zevoraglobalspices.onrender.com';
 
 interface FormData {
@@ -49,7 +51,10 @@ export function useContactForm() {
       setStatus('error');
       return;
     }
-    if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    if (
+      !formData.email.trim() ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+    ) {
       setErrorMessage('Please enter a valid email address');
       setStatus('error');
       return;
@@ -64,9 +69,14 @@ export function useContactForm() {
     setErrorMessage('');
 
     try {
+      // ✅ Add timeout to prevent hanging
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout
+
       const response = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
         body: JSON.stringify({
           name: formData.name,
           company: formData.company,
@@ -77,11 +87,24 @@ export function useContactForm() {
         }),
       });
 
-      const result = await response.json();
+      clearTimeout(timeoutId);
+
+      // ✅ Fix: Safely parse JSON response
+      let result;
+      const responseText = await response.text();
+
+      try {
+        result = responseText ? JSON.parse(responseText) : {};
+      } catch {
+        console.error('Invalid JSON response:', responseText);
+        throw new Error('Server returned an invalid response');
+      }
 
       if (!response.ok) {
         throw new Error(
-          result.error || result.errors?.join(', ') || 'Failed to send request'
+          result.error ||
+            result.errors?.join(', ') ||
+            `Server error (${response.status})`
         );
       }
 
@@ -90,9 +113,21 @@ export function useContactForm() {
       setTimeout(() => setStatus('idle'), 6000);
     } catch (err) {
       setStatus('error');
-      setErrorMessage(
-        err instanceof Error ? err.message : 'Something went wrong. Please try again.'
-      );
+
+      if (err instanceof Error) {
+        if (err.name === 'AbortError') {
+          setErrorMessage(
+            'Request timed out. Please try again.'
+          );
+        } else {
+          setErrorMessage(err.message);
+        }
+      } else {
+        setErrorMessage(
+          'Something went wrong. Please try again.'
+        );
+      }
+
       setTimeout(() => setStatus('idle'), 8000);
     }
   };

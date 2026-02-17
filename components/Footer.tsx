@@ -11,12 +11,12 @@ const Footer: React.FC = () => {
         
         {/* Footer links */}
         <div className="flex gap-6 text-sm">
-          <a href="#" className="font-sans font-medium text-slate-400 hover:text-primary transition-colors">
-            Privacy Policy
+          <a href="/policies" className="font-sans font-medium text-slate-400 hover:text-primary transition-colors">
+            Privacy Policy & Terms of Service
           </a>
-          <a href="#" className="font-sans font-medium text-slate-400 hover:text-primary transition-colors">
+          {/* <a href="/policies" className="font-sans font-medium text-slate-400 hover:text-primary transition-colors">
             Terms of Service
-          </a>
+          </a> */}
         </div>
       </div>
       

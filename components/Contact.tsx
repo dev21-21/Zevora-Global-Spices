@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
                   </p>
                   <p className="text-red-600 dark:text-red-400 font-sans text-xs mt-1">
                     {errorMessage ||
-                      'Please try again or email us directly at admin@zevoraglobalspices.com'}
+                      'Please try again or email us directly at enquiry@zevoraglobalspices.com'}
                   </p>
                 </div>
               </div>
@@ -256,7 +256,7 @@ const Contact: React.FC = () => {
                     12/45 Spice Market Road
                   </p>
                   <p className="text-slate-400 font-sans text-sm">
-                    Kochi, Kerala, India
+                    Kerala, India
                   </p>
                   <p className="text-slate-400 font-mono text-xs tracking-wide mt-2">
                     PIN: 682001
@@ -287,7 +287,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-mono text-[9px] text-slate-500 tracking-[0.1em] mb-0.5">EMAIL</div>
-                    <div className="font-sans text-sm font-medium">admin@zevoraglobalspices.com</div>
+                    <div className="font-sans text-sm font-medium">enquiry@zevoraglobalspices.com</div>
                   </div>
                 </a>
 

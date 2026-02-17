@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-8 relative">
             {/* Corner decoration */}
-            <div className="absolute -left-6 -top-6 w-12 h-12 border-l-4 border-t-4 border-primary opacity-50 rounded-tl-lg"></div>
+            
             
             {/* Status badge */}
             <div className="inline-flex items-center border border-primary/40 bg-slate-900/80 px-5 py-2.5 text-[11px] font-mono text-primary backdrop-blur-md mb-8 shadow-lg rounded-full tracking-[0.12em]">
