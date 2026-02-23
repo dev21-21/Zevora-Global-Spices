@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import Team from './components/Team';
 import PolicyPage from './components/PolicyPage';
 import ScrollToTop from './components/ScrollToTop';
+import MarqueeGallery from './components/MarqueeGallery';
 
 const HomePage: React.FC = () => (
   <>
@@ -18,6 +19,7 @@ const HomePage: React.FC = () => (
     <Stats />
     <Products />
     <Process />
+<MarqueeGallery/>
     <Team />
     <About />
     <Contact />
