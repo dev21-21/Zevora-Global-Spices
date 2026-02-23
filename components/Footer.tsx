@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
 
         {/* WhatsApp Contact Button */}
         <a 
-          href="https://wa.me/1234567890" 
+          href="https://wa.me/message/UKMP3V2NTSTMD1" 
           target="_blank"
           rel="noopener noreferrer"
           className="rounded-2xl group relative flex h-14 w-14 items-center justify-center bg-[#25D366] text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all"

@@ -18,7 +18,7 @@ const Stats: React.FC = () => {
                 <span className="material-symbols-outlined text-xl">history</span>
               </div>
               <span className="font-mono text-[9px] text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full tracking-wide">
-                EST 2015
+                EST 2026
               </span>
             </div>
             
@@ -70,7 +70,7 @@ const Stats: React.FC = () => {
             
             {/* Label - Sans font */}
             <p className="font-sans text-sm font-semibold text-slate-600 dark:text-slate-400">
-              Countries Served
+              Countries 
             </p>
             
             {/* Indicator bars */}

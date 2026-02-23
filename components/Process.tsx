@@ -46,7 +46,8 @@ const Process: React.FC = () => {
       title: 'Harvest', 
       icon: 'agriculture', 
       subtitle: 'Farm Fresh Spices', 
-      detail: 'Kerala Plantations', 
+      detail: 'Sourced from Kerala\'s Western Ghats — one of the world\'s finest spice-growing regions. Our Green Cardamom is hand-harvested at peak maturity for vibrant color, bold aroma, and clean 8mm+ grading. Black Pepper is selectively handpicked at optimal ripeness, then sun-dried in Kerala\'s mountain climate to develop deep color, high piperine content, and concentrated flavor with long shelf stability.',
+      highlights: ['Western Ghats Origin', 'Hand-Harvested', '8mm+ Grading'],
       color: 'green',
       bgImage: 'https://images.unsplash.com/photo-1627920769842-6887c6df05ca?q=80&w=1333&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       label: 'KERALA SPICE FIELDS',
@@ -58,7 +59,8 @@ const Process: React.FC = () => {
       title: 'Quality Lab', 
       icon: 'science', 
       subtitle: 'ISO 22000 Certified', 
-      detail: 'Lab Tested & Verified', 
+      detail: 'Every batch undergoes rigorous laboratory testing before shipment to meet international food safety and export standards. We test for pesticide residue (MRL compliance), aflatoxin levels, microbiological safety including Salmonella-free certification, moisture content, and purity analysis. Full certifications and lab reports provided per importing country\'s regulations — Europe, Middle East, Asia, or North America.',
+      highlights: ['MRL Compliant', 'Salmonella-Free', 'Global Certified'],
       color: 'cyan',
       bgImage: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1200&q=80',
       label: 'QUALITY TESTING',
@@ -70,7 +72,8 @@ const Process: React.FC = () => {
       title: 'Processing', 
       icon: 'inventory_2', 
       subtitle: 'Vacuum Sealed', 
-      detail: 'Individual & Bulk Packs', 
+      detail: 'Built to meet international export standards with precision. Every batch undergoes systematic cleaning, grading, density separation, and moisture control to preserve natural aroma and oil content. Comprehensive lab testing backs every shipment with documented quality assurance. We offer bulk export packaging (25kg/50kg), vacuum packing for aroma retention, retail-ready packs, and fully customized private label solutions.',
+      highlights: ['Density Graded', 'Vacuum Sealed', 'Private Label'],
       color: 'amber',
       bgImage: 'https://assets.lummi.ai/assets/QmZReNuLf9jLba9eXLQSuNSCpXoHHaSS4ZqD7JAUR3wjgD?auto=format&w=1500',
       label: 'PROCESSING UNIT',
@@ -82,7 +85,8 @@ const Process: React.FC = () => {
       title: 'Logistics', 
       icon: 'flight_takeoff', 
       subtitle: 'Air & Sea Freight', 
-      detail: 'Worldwide Delivery', 
+      detail: 'Logistics managed with the same precision as our sourcing. We coordinate with trusted freight partners for both air and sea shipments based on urgency and cost optimization. Every consignment is professionally documented to meet destination-country regulations — including invoice, packing list, certificate of origin, phytosanitary certification, and lab reports. Secure container loading with full shipment tracking worldwide.',
+      highlights: ['Air & Sea Freight', 'Full Documentation', 'Global Tracking'],
       color: 'sky',
       bgImage: 'https://images.unsplash.com/photo-1566935843973-aed0ddcb0ecc?q=80&w=1129&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       label: 'GLOBAL SHIPPING',
@@ -280,38 +284,54 @@ const Process: React.FC = () => {
                         </div>
 
                         {/* Info Panel */}
-                        <div className={`lg:w-72 xl:w-80 bg-gradient-to-br from-${step.color}-500 to-${step.color}-600 p-4 sm:p-6 flex flex-col justify-between relative z-30 shadow-xl`}>
-                          <div>
-                            <div className="flex items-center gap-3 mb-4">
-                              <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                                <span className="material-symbols-outlined text-2xl text-white">{step.icon}</span>
+                        <div className={`lg:w-72 xl:w-80 bg-gradient-to-br from-${step.color}-500 to-${step.color}-600 p-4 sm:p-5 flex flex-col justify-between relative z-30 shadow-xl`}>
+                          <div className="flex-1 flex flex-col min-h-0">
+                            <div className="flex items-center gap-3 mb-3 flex-shrink-0">
+                              <div className="w-11 h-11 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span className="material-symbols-outlined text-xl text-white">{step.icon}</span>
                               </div>
                               <div>
-                                <div className="text-white/70 text-xs font-mono tracking-[0.1em]">STEP {step.id}</div>
-                                <h3 className="text-xl font-display font-bold text-white">{step.title}</h3>
+                                <div className="text-white/60 text-[10px] font-mono tracking-[0.12em]">STEP {step.id}</div>
+                                <h3 className="text-lg font-display font-bold text-white leading-tight">{step.title}</h3>
                               </div>
                             </div>
-                            <div className="space-y-2 mb-4">
-                              <p className="text-white font-sans font-medium">{step.subtitle}</p>
-                              <p className="text-white/70 text-sm font-sans">{step.detail}</p>
+                            
+                            <div className="mb-3 flex-shrink-0">
+                              <p className="text-white font-sans font-semibold text-sm">{step.subtitle}</p>
+                            </div>
+
+                            <p className="text-white/75 text-xs font-sans leading-relaxed mb-3 flex-1">{step.detail}</p>
+
+                            {/* Highlight Tags */}
+                            <div className="flex flex-wrap gap-1.5 mb-3 flex-shrink-0">
+                              {step.highlights.map((tag, i) => (
+                                <span 
+                                  key={i} 
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 bg-white/15 backdrop-blur-sm rounded-full text-[10px] font-sans font-medium text-white border border-white/10"
+                                >
+                                  <span className="material-symbols-outlined" style={{ fontSize: '10px' }}>check_circle</span>
+                                  {tag}
+                                </span>
+                              ))}
                             </div>
                           </div>
 
-                          <div>
-                            <div className="flex justify-between items-center mb-2">
-                              <span className="text-white/70 text-xs font-sans">Progress</span>
-                              <span className="text-white font-mono font-bold">{Math.round(progress * 100)}%</span>
+                          {/* Progress Footer */}
+                          <div className="flex-shrink-0 pt-2 border-t border-white/15">
+                            <div className="flex justify-between items-center mb-1.5">
+                              <span className="text-white/60 text-[10px] font-sans uppercase tracking-wider">Progress</span>
+                              <span className="text-white font-mono font-bold text-sm">{Math.round(progress * 100)}%</span>
                             </div>
-                            <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+                            <div className="h-1.5 bg-white/20 rounded-full overflow-hidden">
                               <div 
                                 className="h-full bg-white rounded-full transition-all duration-500"
                                 style={{ width: `${progress * 100}%` }}
                               />
                             </div>
                             {progress > 0.9 && (
-                              <div className="mt-3 flex items-center justify-center gap-2 p-2 bg-white/20 backdrop-blur-sm rounded-lg">
-                                <span className="material-symbols-outlined text-white">check_circle</span>
-                                <span className="text-white font-sans font-bold text-sm">Complete</span>
+                              <div className="mt-2 flex items-center justify-center gap-1.5 p-1.5 bg-white/20 backdrop-blur-sm rounded-lg">
+                                <span className="material-symbols-outlined text-white text-sm">check_circle</span>
+                                <span className="text-white font-sans font-bold text-xs">Complete</span>
                               </div>
                             )}
                           </div>

@@ -14,7 +14,7 @@ const products: ExtendedProduct[] = [
     ref: 'SKU-BP001',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmSsqcHODZNqLKprqRsEocdaObsRQvXZk8EaR0kmg3RtmeESIRIGBJsRlrnBv7GrZ3EEaq2oEXfhdoI974nn5cVR5NacdI7laxxUJ1Si5RQndIYHlUOGVDKtKPbOEuU4XAuFoG6Js2l-8LslJN54rULb56ACOB3mDPGPJDYStzCjaQhUqAXofadT_4KVnJLoLwDAGBTZEVPZRT-RYc3kFqZPGazIspw4UxCeMQw1oCDrI50TNWDJhuoUVWAODBAwZD6yRfnPhfOAKY',
     
-    specs: { SIZE: '8MM+', COLOR: 'DEEP GREEN', ORIGIN: 'KERALA', TYPE: 'EXTRA BOLD' },
+    specs: { SIZE: '7.5mm | 8mm | 8mm+', COLOR: 'DEEP GREEN', ORIGIN: 'KERALA', TYPE: 'EXTRA BOLD' },
     description: 'Queen of spices with intense aroma and green pods.',
     bestSeller: true,
     rating: 4.9,
@@ -31,96 +31,96 @@ const products: ExtendedProduct[] = [
     rating: 4.8,
     reviews: 1923
   },
-  {
-    id: 'p3',
-    name: 'Turmeric',
-    ref: 'SKU-TM089',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBRA-9XZpVfJHtH1MShg32rownhbmrpK6J2swvHBUFkxHLYMxNXxa_U_gTwe8qj8QfF9GlZFgSjGixPuYx8WCGmAnAE95468_SVC5mVAEl-TCCyPyAgr8o6E97foUT2jy2yCXM9vtJAz6d1SS2H-zVrV5wOeAuzl1SzDjleQM4MMnx8B9ryzv7_BrrTxxhM9ta3QRe9dR9fN4mG_O_4PRWqzXKt1PyjT20s6aPWxYfQu3UxiB3cM31CfQrLbB3NV0_kaDZavUPZve3o',
-    specs: { CURCUMIN: '>5%', FORM: 'FINGER/POWDER', ORIGIN: 'KERALA', PROCESS: 'STEAMED' },
-    description: 'High curcumin content with vibrant golden yellow color.',
-    rating: 4.7,
-    reviews: 1456
-  },
-  {
-    id: 'p4',
-    name: 'Cloves',
-    ref: 'SKU-CL102',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBy96QomCqoDipJ7eunQXJpVa2mEtxjPKJw-JU-c63d9jNchPScWFSK7IsNAMj92ruMV2978BbL00O3jLVOpU36GRfKqkxQPMlDhE4vVCGQbXKA85VUknioDcPFhrfNE-AhIRo1eZS2UQJ6wmhyatO3DF6zXGRJ8n7I6mbCsCYTNfKRkDf62KSN6NCHp5hQfvKeoUedv1M5v65-YvnXmPquFIbZHIZ9eCFdU0BTP0Xfpe2azzMwCDJKwbXkItUqXts2bznjNfQlielB',
-    specs: { GRADE: 'LAL PARI', OIL: '>18%',ORIGIN: 'KERALA', SIZE: 'UNIFORM', PURITY: '99%' },
-    description: 'Aromatic flower buds with rich oil content.',
-    rating: 4.6,
-    reviews: 987
-  },
-  {
-    id: 'p5',
-    name: 'Cinnamon',
-    ref: 'SKU-CN078',
-    image: 'https://m.media-amazon.com/images/I/511iVQP62vL._SL1229_.jpg',
-    specs: { MOISTURE: '<12%', OIL: '>1.5%', ORIGIN: 'KERALA', TYPE: 'CEYLON' },
-    description: 'Premium Ceylon cinnamon with sweet delicate flavor.',
-    rating: 4.7,
-    reviews: 1234
-  },
-  {
-    id: 'p6',
-    name: 'Mace',
-    ref: 'SKU-MC056',
-    image: 'https://static.wixstatic.com/media/aa6a80_ac555e156a4842ab883e07c3bb970508~mv2_d_1200_1200_s_2.jpg/v1/fill/w_575,h_575,al_c,q_85,usm_0.66_1.00_0.01/aa6a80_ac555e156a4842ab883e07c3bb970508~mv2_d_1200_1200_s_2.jpg',
-    specs: { COLOR: 'ORANGE-RED', OIL: '>12%', ORIGIN: 'KERALA', GRADE: 'PREMIUM' },
-    description: 'Aromatic spice with warm, sweet flavor profile.',
-    rating: 4.5,
-    reviews: 654
-  },
-  {
-    id: 'p7',
-    name: 'Nutmeg',
-    ref: 'SKU-NM034',
-    image: 'https://www.theathreya.com/wp-content/uploads/2024/01/Ingredients.png',
-    specs: { SIZE: '70-80/LB', OIL: '>6%', ORIGIN: 'KERALA', MOISTURE: '<10%' },
-    description: 'Whole nutmeg with intense warm spicy aroma.',
-    rating: 4.6,
-    reviews: 892
-  },
-  {
-    id: 'p8',
-    name: 'Cashew Nuts',
-    ref: 'SKU-CW145',
-    image: 'https://static.wixstatic.com/media/24d4b1_b0fa25438c6b4d35990c7f8db1b443d5~mv2.jpg/v1/fit/w_614,h_614,q_90,enc_avif,quality_auto/24d4b1_b0fa25438c6b4d35990c7f8db1b443d5~mv2.jpg',
-    specs: { GRADE: 'W320', COLOR: 'WHITE', ORIGIN: 'KERALA', SIZE: 'LARGE' },
-    description: 'Premium grade cashews, crisp and naturally sweet.',
-    rating: 4.8,
-    reviews: 2156
-  },
-  {
-    id: 'p9',
-    name: 'Coffee Products',
-    ref: 'SKU-CF234',
-    image: ' https://m.media-amazon.com/images/I/31HNx7ZvnFL.jpg',
-    specs: { TYPE: 'ARABICA', ROAST: 'MEDIUM', ORIGIN: 'KERALA', GRADE: 'AA' },
-    description: 'Premium Arabica coffee beans from Western Ghats.',
-    rating: 4.7,
-    reviews: 1789
-  },
-  {
-    id: 'p10',
-    name: 'Tea Products',
-    ref: 'SKU-TE187',
-    image: 'https://t4.ftcdn.net/jpg/16/15/40/99/240_F_1615409949_XXXAoFOCayjZcOOYQuWRoI0Jk6xH2A6n.jpg',
-    specs: { TYPE: 'CTC', GRADE: 'PREMIUM', ORIGIN: 'KERALA', COLOR: 'GOLDEN' },
-    description: 'Fresh tea leaves from high-altitude estates.',
-    rating: 4.6,
-    reviews: 1432
-  },
-  {
-    id: 'p11',
-    name: 'Edible Oils',
-    ref: 'SKU-EO298',
-    image: 'https://www.kaipunnyam.com/cdn/shop/files/kaipunnyam-coconut-oil.jpg?v=1702482707',
-    specs: { TYPE: 'COCONUT', PROCESS: 'COLD PRESSED', ORIGIN: 'KERALA', PURITY: '100%' },
-    description: 'Pure cold-pressed coconut oil, naturally extracted.',
-    rating: 4.8,
-    reviews: 2341
-  }
+  // {
+  //   id: 'p3',
+  //   name: 'Turmeric',
+  //   ref: 'SKU-TM089',
+  //   image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBRA-9XZpVfJHtH1MShg32rownhbmrpK6J2swvHBUFkxHLYMxNXxa_U_gTwe8qj8QfF9GlZFgSjGixPuYx8WCGmAnAE95468_SVC5mVAEl-TCCyPyAgr8o6E97foUT2jy2yCXM9vtJAz6d1SS2H-zVrV5wOeAuzl1SzDjleQM4MMnx8B9ryzv7_BrrTxxhM9ta3QRe9dR9fN4mG_O_4PRWqzXKt1PyjT20s6aPWxYfQu3UxiB3cM31CfQrLbB3NV0_kaDZavUPZve3o',
+  //   specs: { CURCUMIN: '>5%', FORM: 'FINGER/POWDER', ORIGIN: 'KERALA', PROCESS: 'STEAMED' },
+  //   description: 'High curcumin content with vibrant golden yellow color.',
+  //   rating: 4.7,
+  //   reviews: 1456
+  // },
+  // {
+  //   id: 'p4',
+  //   name: 'Cloves',
+  //   ref: 'SKU-CL102',
+  //   image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBy96QomCqoDipJ7eunQXJpVa2mEtxjPKJw-JU-c63d9jNchPScWFSK7IsNAMj92ruMV2978BbL00O3jLVOpU36GRfKqkxQPMlDhE4vVCGQbXKA85VUknioDcPFhrfNE-AhIRo1eZS2UQJ6wmhyatO3DF6zXGRJ8n7I6mbCsCYTNfKRkDf62KSN6NCHp5hQfvKeoUedv1M5v65-YvnXmPquFIbZHIZ9eCFdU0BTP0Xfpe2azzMwCDJKwbXkItUqXts2bznjNfQlielB',
+  //   specs: { GRADE: 'LAL PARI', OIL: '>18%',ORIGIN: 'KERALA', SIZE: 'UNIFORM', PURITY: '99%' },
+  //   description: 'Aromatic flower buds with rich oil content.',
+  //   rating: 4.6,
+  //   reviews: 987
+  // },
+  // {
+  //   id: 'p5',
+  //   name: 'Cinnamon',
+  //   ref: 'SKU-CN078',
+  //   image: 'https://m.media-amazon.com/images/I/511iVQP62vL._SL1229_.jpg',
+  //   specs: { MOISTURE: '<12%', OIL: '>1.5%', ORIGIN: 'KERALA', TYPE: 'CEYLON' },
+  //   description: 'Premium Ceylon cinnamon with sweet delicate flavor.',
+  //   rating: 4.7,
+  //   reviews: 1234
+  // },
+  // {
+  //   id: 'p6',
+  //   name: 'Mace',
+  //   ref: 'SKU-MC056',
+  //   image: 'https://static.wixstatic.com/media/aa6a80_ac555e156a4842ab883e07c3bb970508~mv2_d_1200_1200_s_2.jpg/v1/fill/w_575,h_575,al_c,q_85,usm_0.66_1.00_0.01/aa6a80_ac555e156a4842ab883e07c3bb970508~mv2_d_1200_1200_s_2.jpg',
+  //   specs: { COLOR: 'ORANGE-RED', OIL: '>12%', ORIGIN: 'KERALA', GRADE: 'PREMIUM' },
+  //   description: 'Aromatic spice with warm, sweet flavor profile.',
+  //   rating: 4.5,
+  //   reviews: 654
+  // },
+  // {
+  //   id: 'p7',
+  //   name: 'Nutmeg',
+  //   ref: 'SKU-NM034',
+  //   image: 'https://www.theathreya.com/wp-content/uploads/2024/01/Ingredients.png',
+  //   specs: { SIZE: '70-80/LB', OIL: '>6%', ORIGIN: 'KERALA', MOISTURE: '<10%' },
+  //   description: 'Whole nutmeg with intense warm spicy aroma.',
+  //   rating: 4.6,
+  //   reviews: 892
+  // },
+  // {
+  //   id: 'p8',
+  //   name: 'Cashew Nuts',
+  //   ref: 'SKU-CW145',
+  //   image: 'https://static.wixstatic.com/media/24d4b1_b0fa25438c6b4d35990c7f8db1b443d5~mv2.jpg/v1/fit/w_614,h_614,q_90,enc_avif,quality_auto/24d4b1_b0fa25438c6b4d35990c7f8db1b443d5~mv2.jpg',
+  //   specs: { GRADE: 'W320', COLOR: 'WHITE', ORIGIN: 'KERALA', SIZE: 'LARGE' },
+  //   description: 'Premium grade cashews, crisp and naturally sweet.',
+  //   rating: 4.8,
+  //   reviews: 2156
+  // },
+  // {
+  //   id: 'p9',
+  //   name: 'Coffee Products',
+  //   ref: 'SKU-CF234',
+  //   image: ' https://m.media-amazon.com/images/I/31HNx7ZvnFL.jpg',
+  //   specs: { TYPE: 'ARABICA', ROAST: 'MEDIUM', ORIGIN: 'KERALA', GRADE: 'AA' },
+  //   description: 'Premium Arabica coffee beans from Western Ghats.',
+  //   rating: 4.7,
+  //   reviews: 1789
+  // },
+  // {
+  //   id: 'p10',
+  //   name: 'Tea Products',
+  //   ref: 'SKU-TE187',
+  //   image: 'https://t4.ftcdn.net/jpg/16/15/40/99/240_F_1615409949_XXXAoFOCayjZcOOYQuWRoI0Jk6xH2A6n.jpg',
+  //   specs: { TYPE: 'CTC', GRADE: 'PREMIUM', ORIGIN: 'KERALA', COLOR: 'GOLDEN' },
+  //   description: 'Fresh tea leaves from high-altitude estates.',
+  //   rating: 4.6,
+  //   reviews: 1432
+  // },
+  // {
+  //   id: 'p11',
+  //   name: 'Edible Oils',
+  //   ref: 'SKU-EO298',
+  //   image: 'https://www.kaipunnyam.com/cdn/shop/files/kaipunnyam-coconut-oil.jpg?v=1702482707',
+  //   specs: { TYPE: 'COCONUT', PROCESS: 'COLD PRESSED', ORIGIN: 'KERALA', PURITY: '100%' },
+  //   description: 'Pure cold-pressed coconut oil, naturally extracted.',
+  //   rating: 4.8,
+  //   reviews: 2341
+  // }
 ];
 
 const Products: React.FC = () => {

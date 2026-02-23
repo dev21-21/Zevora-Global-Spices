@@ -253,13 +253,13 @@ const Contact: React.FC = () => {
                     Zevora Global Spices
                   </p>
                   <p className="text-slate-400 font-sans text-sm">
-                    12/45 Spice Market Road
+                   Mannath building
                   </p>
                   <p className="text-slate-400 font-sans text-sm">
-                    Kerala, India
+                    Seaport Airport Road,Kochi,Ernakulam
                   </p>
                   <p className="text-slate-400 font-mono text-xs tracking-wide mt-2">
-                    PIN: 682001
+                    PIN: 682021
                   </p>
                 </div>
               </div>
@@ -274,7 +274,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-mono text-[9px] text-slate-500 tracking-[0.1em] mb-0.5">PHONE</div>
-                    <div className="font-sans text-sm font-medium">+91 98765 43210</div>
+                    <div className="font-sans text-sm font-medium">+91 8921807659</div>
                   </div>
                 </a>
 
@@ -287,7 +287,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-mono text-[9px] text-slate-500 tracking-[0.1em] mb-0.5">EMAIL</div>
-                    <div className="font-sans text-sm font-medium">enquiry@zevoraglobalspices.com</div>
+                    <div className="font-sans text-sm font-medium">Enquiry@zevoraglobalspices.com</div>
                   </div>
                 </a>
 
@@ -314,10 +314,10 @@ const Contact: React.FC = () => {
                 <a href="#" className="h-11 w-11 border border-slate-700 hover:border-primary hover:bg-primary/10 text-white hover:text-primary flex items-center justify-center transition-all bg-slate-800/50 rounded-xl" aria-label="Twitter">
                   <span className="text-sm font-sans font-semibold">𝕏</span>
                 </a>
-                <a href="#" className="h-11 w-11 border border-slate-700 hover:border-primary hover:bg-primary/10 text-white hover:text-primary flex items-center justify-center transition-all bg-slate-800/50 rounded-xl" aria-label="LinkedIn">
+                <a href="https://www.instagram.com/zevoraspices?igsh=dXVreTFlbTI5ejUw" className="h-11 w-11 border border-slate-700 hover:border-primary hover:bg-primary/10 text-white hover:text-primary flex items-center justify-center transition-all bg-slate-800/50 rounded-xl" aria-label="LinkedIn">
                   <span className="text-xs font-sans font-semibold">in</span>
                 </a>
-                <a href="https://wa.me/919876543210" className="h-11 w-11 border border-slate-700 hover:border-primary hover:bg-primary/10 text-white hover:text-primary flex items-center justify-center transition-all bg-slate-800/50 rounded-xl" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/message/UKMP3V2NTSTMD1" className="h-11 w-11 border border-slate-700 hover:border-primary hover:bg-primary/10 text-white hover:text-primary flex items-center justify-center transition-all bg-slate-800/50 rounded-xl" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
                   <span className="material-symbols-outlined text-lg">chat</span>
                 </a>
               </div>

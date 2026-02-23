@@ -124,7 +124,7 @@ const Team: React.FC = () => {
         <div className="grid grid-cols-4 gap-2 md:gap-3 mb-8 lg:mb-12">
           {[
             { label: 'Experience', value: '10+ Yrs', icon: '📊' },
-            { label: 'Markets', value: 'GCC & EU', icon: '🌍' },
+            { label: 'Markets', value: 'World wide / Globally', icon: '🌍' },
             { label: 'Certified', value: 'ISO | FSSAI', icon: '✓' },
             { label: 'Focus', value: 'Spice Export', icon: '🌿' },
           ].map((stat, index) => (

@@ -189,24 +189,28 @@ const About: React.FC = () => {
             {/* Section label */}
             <div className="flex items-center gap-3 mb-4">
               <span className="h-px w-10 bg-primary"></span>
-              <span className="text-primary font-mono text-[11px] font-medium tracking-[0.15em]">ABOUT US</span>
+              <span className="text-primary font-mono text-[11px] font-medium tracking-[0.15em]">ABOUT ZEVORA GLOBAL SPICES</span>
             </div>
             
             {/* Main heading - Display font - Responsive */}
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mt-2 mb-6 leading-[1.1] tracking-[-0.02em]">
-              Rooted in Tradition.<br/>
-              <span className="text-primary">Connected Globally.</span>
+              Rooted in Cultivation.<br/>
+              <span className="text-primary">Built for Global Supply.</span>
             </h2>
             
-            {/* Mission box - rounded */}
+            {/* Origin story box */}
             <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6 border-l-2 border-primary pl-4 sm:pl-5 bg-slate-50 dark:bg-white/5 py-4 pr-4 sm:pr-5 rounded-r-xl">
-              <span className="text-primary font-sans font-semibold">Our Mission:</span><br/>
-              <span className="font-sans">At ZEVORA, we are committed to ethical sourcing, organic integrity, and long-term partnerships. Our focus is not only on supplying spices, but on delivering reliability, transparency, and value across the entire supply chain.</span>
+              <span className="text-primary font-sans font-semibold">Our Foundation:</span><br/>
+              <span className="font-sans">Zevora Global Spices was founded on more than a decade of hands-on experience in spice cultivation across the fertile highlands of Kerala. Before entering international trade, our foundation was built in the fields — understanding soil, climate, harvesting cycles, and post-harvest handling at the source.</span>
             </div>
             
-            {/* Description - Sans font - Responsive */}
+            {/* Description paragraphs */}
+            <p className="font-sans text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed mb-4">
+              In 2026, we took the next strategic step by establishing Zevora Global Spices as an export-focused enterprise, dedicated to delivering premium Kerala-origin spices directly to global buyers. Our strength lies in controlled sourcing from the Western Ghats — one of the world's most respected spice-growing regions.
+            </p>
+
             <p className="font-sans text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed mb-8">
-              ZEVORA GLOBAL SPICES is a Kerala-based organic spice sourcing and export company established in 2015, delivering premium quality spices from India to global markets. We work directly with 150+ organic farmers across more than 100 acres of organic farmland, ensuring quality, traceability, fair pricing, and export-ready bulk, branded, and private-label packaging supported by an experienced team.
+              Today, Zevora is directly connected with a network of <span className="text-slate-900 dark:text-white font-semibold">150+ farmers</span> across the Western Ghats region, specializing in carefully selected, handpicked green cardamom and high-density black pepper — processed with strict grading standards to ensure uniformity, aroma retention, and visual excellence.
             </p>
             
             {/* Chart Section - rounded - Responsive */}
@@ -268,13 +272,21 @@ const About: React.FC = () => {
               </div>
             </div>
 
+            {/* Origin specialist statement */}
+            <div className="mb-8 flex items-start gap-3 p-4 bg-primary/5 dark:bg-primary/10 border border-primary/20 rounded-xl">
+              <span className="material-symbols-outlined text-primary text-xl mt-0.5 flex-shrink-0">verified</span>
+              <p className="font-sans text-slate-700 dark:text-slate-300 text-sm leading-relaxed italic">
+                "We operate as origin specialists — committed to consistency, transparency, and long-term supply relationships."
+              </p>
+            </div>
+
             {/* Checklist - professional styling - Responsive */}
             <ul className="space-y-3 sm:space-y-4">
               {[
-                'Direct Farm Sourcing from Kerala',
-                'ISO 22000 Certified Processing Facility',
-                'Eco-Friendly & Sustainable Practices',
-                'FSSAI & Organic Certified Products'
+                'Direct Farm Sourcing from Western Ghats, Kerala',
+                'Handpicked Green Cardamom & High-Density Black Pepper',
+                'Strict Grading for Uniformity & Aroma Retention',
+                '150+ Farmer Network with Controlled Sourcing'
               ].map((item, index) => (
                 <li key={index} className="flex items-center gap-3 sm:gap-4 group">
                   <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-primary flex items-center justify-center group-hover:bg-primary transition-colors duration-300 rounded-md flex-shrink-0">
