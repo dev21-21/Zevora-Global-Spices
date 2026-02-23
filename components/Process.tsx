@@ -163,7 +163,7 @@ const Process: React.FC = () => {
     <section 
       ref={sectionRef} 
       id="process" 
-      className="relative bg-surface-light dark:bg-surface-dark border-t-2 border-slate-900 dark:border-white"
+      className="relative bg-surface-light dark:bg-surface-dark border-t-2 dark:border-white"
       style={{ height: '800vh' }}
     >
       <div 
