@@ -34,7 +34,7 @@ const Stats: React.FC = () => {
             
             {/* Label - Sans font */}
             <p className="font-sans text-sm font-semibold text-slate-600 dark:text-slate-400">
-              Years of Experience
+              Spice Industry Experience
             </p>
             
             {/* Progress bar */}

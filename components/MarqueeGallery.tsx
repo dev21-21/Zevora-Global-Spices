@@ -49,7 +49,7 @@ const MarqueeGallery: React.FC = () => {
           CERTIFICATIONS
         </div>
         <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white tracking-[-0.02em]">
-          Trusted <span className="text-primary">Certifications</span>
+          Our <span className="text-primary">Certifications</span>
         </h2>
         <p className="mt-2 text-sm text-slate-500 dark:text-slate-400 font-sans max-w-md mx-auto">
           Internationally recognized certifications ensuring quality, safety, and compliance across global markets
