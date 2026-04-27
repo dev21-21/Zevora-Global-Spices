@@ -58,6 +58,33 @@ const products: ExtendedProduct[] = [
     rating: 4.8,
     reviews: 1923,
   },
+  {
+    id: 'p3',
+    name: 'Fresh Ginger',
+    ref: 'SKU-FG003',
+    tagline: 'PREMIUM INDIAN FRESH GINGER',
+    nickname: 'Nature\'s Healer',
+    origin: 'Kerala, India',
+    image: 'https://res.cloudinary.com/dlnfi4gab/image/upload/v1777303334/gpt_ex4sqr.png',
+    specs: {
+      SIZE: 'Medium to Large',
+      COLOR: 'Natural Light Brown',
+      MOISTURE: '80–85%',
+      PURITY: '99% Clean',
+    },
+    description: 'Premium quality fresh ginger sourced from the finest farms of India. Known for its strong aroma, rich flavor, and high nutritional value, our ginger is carefully selected and hygienically processed to meet international export standards.',
+    gradesSummary: 'Export Grade  •  Bulk Available  •  Custom Packaging',
+    keyFeatures: [
+      'Strong aroma and rich flavor profile',
+      'High nutritional value and 99% purity',
+      'Hygienically processed for export standards',
+      'Ideal for culinary, medicinal & industrial use',
+    ],
+    supplyHighlights: ['MOQ: 500 kg', 'Mesh Bags / Cartons', 'Worldwide shipping'],
+    bestSeller: false,
+    rating: 4.7,
+    reviews: 1560,
+  },
 ];
 
 const Products: React.FC = () => {
